@@ -1,0 +1,44 @@
+/* Main navbar container */
+nav {
+ 
+  background-color: #fff;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  padding: 16px 16px;
+  font-family: Arial, sans-serif;
+
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  color:  black;
+  font-size: 20px;
+}
+
+.nav-links a:hover{
+  color: #2d2d84;
+}
+
+
+
+nav select {
+  padding: 4px 8px;
+  font-size: 20px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+nav select:hover{
+  color: #2d2d84; ;
+}
