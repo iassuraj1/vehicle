@@ -1,168 +1,218 @@
-/* ---- Theme tokens ---- */
-:root{
-  --bg: #fbf8f2;         /* light cream bar */
-  --text: #232323;       /* primary text */
-  --muted: #6b6b6b;      /* muted text */
-  --stroke: #d7d4cd;     /* subtle border */
-  --white: #ffffff;
-  --blue: #2f73da;       /* CONTACT US */
-  --blue-hover: #1f5ec4;
-  --radius: 10px;
-  --field-h: 36px;       /* control height to keep everything aligned */
-  --gap-sm: 8px;
-  --gap-md: 12px;
-  --gap-lg: 20px;
-  --shadow: 0 1px 2px rgba(0,0,0,.06);
-}
-
-/* ---- Header bar ---- */
-.header{
+/* -------------------- Base (Desktop ≥993px) -------------------- */
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: var(--gap-lg);
-  padding: 10px 18px;
-  background: var(--bg);
-  box-shadow: var(--shadow);
-  border-top: 2px solid #222;              /* thin dark line like screenshot */
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-}
-
-/* left: logo + brand */
-.header-left{
-  display: flex;
   align-items: center;
-  gap: 8px;
-  min-width: 160px;
+  background: #faf9f7;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap;
+  position: relative; /* for mobile/tablet menu positioning */
 }
-.logo{ height: 56px; width: auto; }
-/* .brand{
-  font-weight: 800;
-  letter-spacing: .3px;
-  font-size: 18px;
-} */
 
-/* middle: city + make + search */
-.header-middle{
+/* Header left */
+.header-left {
   display: flex;
+  gap: 20px;
+  flex-wrap: wrap; 
   align-items: center;
-  gap: var(--gap-sm);
-  flex: 1 1 50%;
 }
 
-/* shared field styles (selects) */
-.dropdown{
-  height: var(--field-h);
-  line-height: var(--field-h);
-  padding: 0 12px;
-  font-size: 14px;
-  color: var(--text);
-  background: var(--white);
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  outline: none;
-  transition: border-color .15s ease, box-shadow .15s ease;
-  /* Keep width sensible; city is narrower than make */
-}
-.dropdown:first-of-type{ min-width: 150px; }   /* "Select city" */
-.dropdown:nth-of-type(2){ min-width: 220px; }  /* "Select by make" */
-
-.dropdown:focus{
-  border-color: #c4c1b9;
-  box-shadow: 0 0 0 3px rgba(47,115,218,.08);
+/* Logo */
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
-/* search icon button (small square with border, rounded) */
-.search-btn{
-  height: var(--field-h);
-  width: var(--field-h);
-  display: grid;
-  place-items: center;
-  background: var(--white);
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+/* Dropdowns */
+.dropdown {
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 20px;
+  background: #fff;
   cursor: pointer;
+  outline: none;
+  min-width: 160px;
+  color: #595959;
 }
-.search-btn:hover{ background: #f4f4f4; }
-.search-btn svg{ font-size: 14px; fill: currentColor; color: #555; }
+.dropdown:focus {
+  border-color: #2563eb;
+}
 
-/* right: language + contact + register */
-.header-right{
+/* Right Section */
+.header-right {
   display: flex;
   align-items: center;
-  gap: var(--gap-lg);
-  min-width: 280px;
-  justify-content: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* minimalist dropdowns that look like plain text with a tiny caret */
 .lang-dropdown,
-.register-dropdown{
-  height: var(--field-h);
-  line-height: var(--field-h);
+.register-dropdown {
   border: none;
   background: transparent;
-  padding: 0 18px 0 0;              /* space for caret */
-  font-size: 14px;
-  color: var(--text);
+  font-size: 0.95rem;
   cursor: pointer;
-  appearance: none;                  /* hide native arrow */
-  position: relative;
+  color: #595959;
+  font-size: 20px;
 }
 
-/* custom caret using background image (▼) */
-.lang-dropdown,
-.register-dropdown{
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23232323' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 2px center;
-  background-size: 12px 8px;
-}
-
-/* blue pill button */
-.contact-btn{
-  height: var(--field-h);
-  padding: 0 16px;
-  border: none;
-  border-radius: 999px;
-  background: var(--blue);
+/* Contact button */
+.contact-btn {
+  background: #2f80ed;
   color: #fff;
-  font-weight: 800;
-  letter-spacing: .4px;
-  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  transition: background 0.3s;
 }
-.contact-btn:hover{ background: var(--blue-hover); }
-
-/* ---- Small refinements ---- */
-select:disabled{ opacity: .6; cursor: not-allowed; }
-.header *:focus-visible{
-  outline: 2px solid rgba(47,115,218,.35);
-  outline-offset: 2px;
+.contact-btn:hover {
+  background: #1b5fcc;
 }
 
-/* ---- Responsive tweaks ---- */
-@media (max-width: 920px){
-  .header{ gap: 12px; padding: 8px 12px; }
-  .dropdown:nth-of-type(2){ min-width: 180px; }
-  .brand{ font-size: 16px; }
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  width: 250px;
+  background-color: #fff;
+  
 }
-@media (max-width: 720px){
-  .brand{ display: none; }                 /* keep logo, hide text to save space */
-  .header-right{ gap: 12px; min-width: unset; }
-  .dropdown:first-of-type{ min-width: 130px; }
-  .dropdown:nth-of-type(2){ min-width: 160px; }
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 20px;
+  color: #595959;
 }
-@media (max-width: 520px){
-  .header{
-    flex-wrap: wrap;
-    row-gap: 8px;
+.search-icon {
+  color: #555;
+  cursor: pointer;
+}
+
+option {
+  font-size: 16px;
+}
+
+/* Hamburger (hidden by default) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  line-height: 0;
+}
+
+/* Mobile/Tablet menu hidden by default */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 992px) and (min-width: 481px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+ 
   }
-  .header-middle{ order: 3; width: 100%; }
-  .header-right{ order: 2; }
+
+  .header-left .dropdown,
+  .header-left .search-box {
+    display: none;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 1000;
+  }
+
+  /* Tablet menu items full-width */
+  .mobile-menu .lang-dropdown,
+  .mobile-menu .register-dropdown {
+    width: 100%;
+  }
+  .mobile-menu .contact-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .header-left .dropdown,
+  .header-left .search-box {
+    display: none;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 1000;
+  }
+
+  .mobile-menu .search-box {
+    width: 100%;
+  }
+  .mobile-menu .dropdown,
+  .mobile-menu .lang-dropdown,
+  .mobile-menu .register-dropdown {
+    width: 100%;
+  }
+  .mobile-menu .contact-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
 }

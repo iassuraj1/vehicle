@@ -20,7 +20,8 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color:  black;
+  font-weight: 200;
+  color: #595959;
   font-size: 20px;
 }
 
@@ -41,4 +42,109 @@ nav select {
 
 nav select:hover{
   color: #2d2d84; ;
+}
+
+@media (max-width: 480px) {
+
+
+  nav {
+ 
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding: 5px;
+  font-family: Arial, sans-serif;
+
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2px 0px 2px;
+  
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 200;
+  color: #595959;
+  font-size: 14px;
+  gap: 5px;
+  
+}
+
+.nav-links a:hover{
+  color: #2d2d84;
+}
+
+
+
+nav select {
+  padding: 2px 4px;
+  font-size: 14px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+nav select:hover{
+  color: #2d2d84; ;
+}
+  
+}
+
+@media (min-width: 480px) and (max-width : 768px){
+
+nav {
+ 
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+
+  
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 200;
+  color: #595959;
+  font-size: 18px;
+  gap: 10px;
+  
+}
+
+.nav-links a:hover{
+  color: #2d2d84;
+}
+
+
+
+nav select {
+  padding: 4px 8px;
+  font-size: 18px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+nav select:hover{
+  color: #2d2d84; ;
+}
+  
+
+
 }

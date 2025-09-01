@@ -1,0 +1,180 @@
+:root{
+  --blue:#377CDB;
+  --deep:#294872;
+  --border:#DFE6EE;
+  --muted:#6B7A90;
+  --bg:#F4F6FA;
+}
+
+.form-box{
+  max-width: 1100px;
+  margin: -30px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 24px;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(2, 7, 15, 0.7);
+  align-items: start;
+}
+
+.serach-box h1{
+  margin: 0 0 16px 0;
+  color: var(--deep);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.search_cars{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  margin-bottom: 16px;
+
+}
+
+.search_cars input,
+.model_option input[type="date"],
+.search_cars select,
+.model_option select{
+  height: 44px;
+  padding: 0 14px ;
+  border: 1px solid var(--deep);
+  border-radius: 8px;
+  background: #fff;
+  outline: none;
+  font-size: 17px;
+  color: var(--muted);
+  transition: border-color .15s, box-shadow .15s;
+}
+.search_cars input:focus,
+.model_option input[type="date"]:focus,
+.search_cars select:focus,
+.model_option select:focus{
+  border-color: var(--blue);
+  color: var(--border);
+  box-shadow: 0 0 0 3px rgba(55,124,219,.15);
+}
+
+#car_type{
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  padding: 0 16px;
+}
+
+.model_option{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.single-slider{
+  margin-top: 0px;
+  padding: 14px 16px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.budget{
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #47566B;
+  font-size: 14px;
+  font-weight: 600;
+}
+#budget_heading{
+  color: var(--muted);
+  padding: 0px;
+  margin: 16px 0px 0px 0px;
+  
+}
+
+#budget{
+  width: 100%;
+  accent-color: var(--deep);
+  -webkit-appearance: none;
+  height: 4px;
+  background: #C9D3E2;
+  border-radius: 100px;
+  outline: none;
+  color: var(--muted);
+}
+#budget::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--deep);
+  box-shadow: 0 0 0 3px rgba(41,72,114,.15);
+  cursor: pointer;
+}
+#budget::-moz-range-thumb{
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--deep);
+  box-shadow: 0 0 0 3px rgba(41,72,114,.15);
+  cursor: pointer;
+}
+
+.sell_car_icon{
+  padding: 0px;
+  border-left: 1px solid var(--border);
+  border-radius: 0 12px 12px 0;
+  background: #fff;
+}
+
+.sell_car_icon::before{
+  content: "Sell your Car";
+  display: block;
+  color: var(--deep);
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 12px;
+  padding-left:30px ;
+}
+
+.sell_car_icon > div{
+  margin: 0px;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px 24px !important;
+  text-align: center;
+}
+
+.sell_car_icon p{
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.sell_btn{
+  margin-top: 14px;
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(55,124,219,.25);
+}
+
+@media (max-width: 1024px){
+  .form-box{ grid-template-columns: 1fr; }
+  .sell_car_icon{ border-left: 0; border-top: 1px solid var(--border); border-radius: 12px; }
+  .search_cars{ grid-template-columns: 1fr; }
+  #car_type{ width: 100%; }
+  .model_option{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .model_option{ grid-template-columns: 1fr; }
+}

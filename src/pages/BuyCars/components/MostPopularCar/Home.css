@@ -1,0 +1,30 @@
+.home_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 100px;
+}
+.home {
+  width: 1200px;
+  padding: 1.5rem; /* p-6 */
+  border: 1px solid rgba(55, 124, 219, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 5px rgb(173, 172, 172);
+ 
+}
+.home h2 {
+  font-size: 30px; /* text-xl */
+  font-weight: 600; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #294872;
+  margin-top: 0px;
+}
+
+.home .view-all {
+  display: block;
+  margin-top: 1rem;
+  font-size: 22px;
+  color: #294872; /* text-blue-600 */
+  text-decoration: none;
+  font-weight: 500;
+}

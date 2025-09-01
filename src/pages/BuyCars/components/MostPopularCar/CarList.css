@@ -1,0 +1,11 @@
+.car-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem; /* gap-5 */
+}
+
+@media (min-width: 768px) {
+  .car-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

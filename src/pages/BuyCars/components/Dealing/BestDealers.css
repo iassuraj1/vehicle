@@ -1,0 +1,50 @@
+.continer{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.images{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 30px;
+    height: 85vh;
+    width: 1200px;
+
+    justify-content: space-between;
+    
+}
+
+.Heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #294872;
+    text-align: center;
+    line-height: 1em;
+    width: 60vw;
+    font-size: 60px;
+    margin-top: 10px;
+
+
+}
+
+.car_details_button{
+    margin-bottom: 20px;
+    padding: 10px 40px 10px 40px;
+    text-transform: uppercase;
+    font-size: 17px;
+    border-radius: 10px;
+    border: 1px solid #377CDB;
+    background-color: #377CDB;
+    color: white;
+
+}
+

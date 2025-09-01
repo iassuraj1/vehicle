@@ -1,0 +1,128 @@
+.continer-imported{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.car-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 1250px;
+ 
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.car-card-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 480px;
+  text-align: left;
+  padding-top:0px ;
+}
+
+.car-card-content h2{
+  margin-top: 0px;
+  font-size: 30px;
+}
+.card-title {
+  font-size: 1.5rem;
+  color: #294872;
+  margin-bottom: 12px; 
+
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #294872;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.car-card p{
+  color: #294872;
+  font-size: 22px;
+}
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card-list li {
+  margin: 6px 0;
+  font-size: 22px;
+  color: #294872;
+}
+
+.card-btn {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 5px 9px !important;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px !important;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #1258a2;
+}
+
+.car-card-image {
+  flex: 1;
+  min-width: 380px;
+}
+
+.car-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .car-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .car-card-content {
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .card-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    
+  }
+
+  .card-btn {
+    font-size: 0.85rem;
+  }
+}

@@ -1,31 +1,43 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import "./MainHeader.css"; // Import CSS
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import "./MainHeader.css";
+
+const SearchBox = ({ placeholder, onChange }) => {
+  return (
+    <div className="search-box">
+      <input
+        type="text"
+        placeholder={placeholder || "Select by make"}
+        onChange={onChange}
+      />
+      <FaSearch className="search-icon" />
+    </div>
+  );
+};
 
 export default function MainHeader() {
   const [city, setCity] = useState("");
   const [language, setLanguage] = useState("English");
   const [registerOption, setRegisterOption] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((v) => !v);
 
   return (
     <header className="header">
-      
-      {/* Left: Logo */}
+      {/* Left side: logo + city + search (desktop/tablet), only logo on mobile */}
       <div className="header-left">
         <img
           src="./HomePageImages/site_logo1.jpg"
           alt="logo"
           className="logo"
         />
-        {/* <span className="brand">EJAR MOTORS</span> */}
-      </div>
 
-      {/* Middle: Search Section */}
-      <div className="header-middle">
+        {/* Hidden on mobile, visible on desktop/tablet */}
         <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="dropdown"
+          className="dropdown header-left-city"
         >
           <option value="">Select city</option>
           <option value="Dubai">Dubai</option>
@@ -33,19 +45,10 @@ export default function MainHeader() {
           <option value="Sharjah">Sharjah</option>
         </select>
 
-        <select className="dropdown">
-          <option value="">Select by make</option>
-          <option value="Toyota">Toyota</option>
-          <option value="BMW">BMW</option>
-          <option value="Mercedes">Mercedes</option>
-        </select>
-
-        <button className="search-btn">
-          <FaSearch />
-        </button>
+        <SearchBox placeholder="Select by make" />
       </div>
 
-      {/* Right: Controls */}
+      {/* Right side: visible on desktop/tablet */}
       <div className="header-right">
         <select
           value={language}
@@ -69,6 +72,51 @@ export default function MainHeader() {
           <option value="Dealer">As Dealer</option>
         </select>
       </div>
+
+      {/* Hamburger (only mobile) */}
+      <button className="hamburger" onClick={toggleMenu}>
+        {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+      </button>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="mobile-menu">
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="dropdown"
+          >
+            <option value="">Select city</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Abu Dhabi">Abu Dhabi</option>
+            <option value="Sharjah">Sharjah</option>
+          </select>
+
+          <SearchBox placeholder="Select by make" />
+
+          <select
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="lang-dropdown"
+          >
+            <option>English</option>
+            <option>Arabic</option>
+            <option>French</option>
+          </select>
+
+          <button className="contact-btn">CONTACT US</button>
+
+          <select
+            value={registerOption}
+            onChange={(e) => setRegisterOption(e.target.value)}
+            className="register-dropdown"
+          >
+            <option value="">Register</option>
+            <option value="User">As User</option>
+            <option value="Dealer">As Dealer</option>
+          </select>
+        </div>
+      )}
     </header>
   );
 }

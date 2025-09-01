@@ -1,0 +1,155 @@
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  padding: 20px;
+  max-width: 1250px;
+  margin: 50px auto;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Left Section */
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contact-info h2 {
+  font-size: 30px;
+  color: #294872;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.contact-info p {
+  font-size: 22px;
+  color: #294872;
+  margin-bottom: 12px;
+}
+
+.contact-details p {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  font-size: 22px;
+  color: #294872;
+}
+
+.contact-details .icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.whatsapp-btn {
+  margin-top: 12px;
+  border: 1px solid #003d9f;
+  background: #fff;
+  color: #003d9f;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #003d9f;
+  color: white;
+}
+
+/* Right Section - Form */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  gap: 12px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  /* flex-wrap: wrap; */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px ;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 22px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #003d9f;
+}
+
+.submit-btn {
+  background: #3d82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #2563eb;
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-info {
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .whatsapp-btn {
+    width: 100%;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .contact-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 22px;
+  }
+
+  .submit-btn {
+    font-size: 23px;
+  }
+}

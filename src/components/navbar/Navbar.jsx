@@ -12,7 +12,7 @@ export default function Navbar() {
         <Link to="/car-accessories">Car Accessories</Link>
      
 
-        <select>
+        <select id="mode_types">
           <option value="ssp">SSP</option>
           <option value="msp">MSP</option>
         </select>
@@ -20,4 +20,4 @@ export default function Navbar() {
        </div>
     </nav>
   );
-}
+} 
