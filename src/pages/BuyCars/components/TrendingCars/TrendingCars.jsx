@@ -28,7 +28,7 @@ const TrendingCars = () => {
         <h2>Trending Cars & Hot Deals</h2>
         <div className="cars-grid">
           {visibleCars.map((car, index) => (
-            <div className="car-card" key={index}>
+            <div className="car-card-tranding" key={index}>
               <img src={car.image} alt={car.name} className="car-image" />
               <h3>{car.name}</h3>
               <p>{car.price}</p>

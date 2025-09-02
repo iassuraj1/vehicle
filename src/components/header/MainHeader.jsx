@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import {  FaBars, FaTimes } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi"; 
 import "./MainHeader.css";
 
 const SearchBox = ({ placeholder, onChange }) => {
   return (
     <div className="search-box">
-      <input
+     
+      <input  
         type="text"
         placeholder={placeholder || "Select by make"}
         onChange={onChange}
       />
-      <FaSearch className="search-icon" />
+       <FiSearch className="search-icon" />
     </div>
   );
 };

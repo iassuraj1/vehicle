@@ -1,0 +1,9 @@
+--blue:#377CDB;
+  --deep:#294872;
+  --border:#DFE6EE;
+  --muted:#6B7A90;
+  --bg:#F4F6FA;
+
+
+dark blue #294872
+lite blue #377CDB

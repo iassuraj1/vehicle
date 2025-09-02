@@ -4,7 +4,7 @@ import "./CarImportCard.css";
 const CarImportCard = () => {
   return (
     <div className="continer-imported">
-      <div className="car-card">
+      <div className="car-card-box">
         <div className="car-card-content">
           <h2 className="card-title">Import a Car Hassle Free</h2>
           <p className="card-text">

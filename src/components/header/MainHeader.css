@@ -31,7 +31,7 @@
   padding: 8px 12px;
   border: 1px solid #bbb;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 16px;
   background: #fff;
   cursor: pointer;
   outline: none;
@@ -76,31 +76,36 @@
   background: #1b5fcc;
 }
 
-/* Search Box */
 .search-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 6px 10px;
+  position: relative;
   width: 250px;
-  background-color: #fff;
-  
-}
-.search-box input {
-  border: none;
-  outline: none;
-  flex: 1;
-  font-size: 20px;
-  color: #595959;
-}
-.search-icon {
-  color: #555;
-  cursor: pointer;
+ 
 }
 
+.search-box input {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #595959;
+    outline: none;
+    padding: 7px 5px 7px 20px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #6B7A90;
+  font-weight: 500;
+  pointer-events: none; /* so clicks go to input */
+}
+
+
 option {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 /* Hamburger (hidden by default) */

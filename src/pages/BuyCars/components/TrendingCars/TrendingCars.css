@@ -32,26 +32,27 @@
 }
 
 
-.car-card {
-  border: 1px solid #ddd;
+.car-card-tranding {
+  border: 1px solid #294872 ;
+ border-color: #294872;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
 }
 
-.car-card img {
+.car-card-tranding img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.car-card h3 {
+.car-card-tranding h3 {
   margin: 10px 0 6px;
   font-size: 22px;
 }
 
-.car-card p {
+.car-card-tranding p {
   color: #666;
   font-size: 22px;
   margin-bottom: 20px;

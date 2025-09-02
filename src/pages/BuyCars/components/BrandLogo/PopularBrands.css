@@ -13,7 +13,7 @@
   margin-bottom: 3rem;
   width: 1200px;
   background: #fff;
-  box-shadow: 0px 5px 5px 5px rgb(173, 172, 172);
+  
 }
 
 .brands-title {
@@ -33,9 +33,9 @@
 
 .brand-card {
   text-align: center;
-  border: 2px solid rgba(55, 124, 219, 0.2);
+  border: 1px solid #6B7A90;
   border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+
   background: #fafafa;
 }
 

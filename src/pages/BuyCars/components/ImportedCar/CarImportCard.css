@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.car-card {
+.car-card-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,7 +43,7 @@
   margin-bottom: 12px;
   line-height: 1.5;
 }
-.car-card p{
+.car-card-box p{
   color: #294872;
   font-size: 22px;
 }
@@ -88,7 +88,7 @@
 
 /* Responsive for tablets */
 @media (max-width: 768px) {
-  .car-card {
+  .car-card-box {
     flex-direction: column;
     text-align: center;
   }

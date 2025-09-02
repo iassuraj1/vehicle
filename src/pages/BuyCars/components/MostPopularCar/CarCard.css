@@ -1,7 +1,7 @@
 .car-card {
   border: 1px solid #6B7A90; 
   border-radius: 0.5rem; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow-md */
+   /* shadow-md */
   padding: 0.75rem; /* p-3 */
 }
 
@@ -15,14 +15,17 @@
 .car-card h3 {
   font-size: 22px; /* text-lg */
   font-weight: 600; /* font-semibold */
-  margin-top: 0.5rem;
+  margin: 10px;
   margin-bottom: 0px;
 }
 
 .car-card p {
   font-size: 22px; /* text-sm */
   color: #4b5563; /* text-gray-600 */
-  margin: 0px;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  
 }
 
 .car-card button {
