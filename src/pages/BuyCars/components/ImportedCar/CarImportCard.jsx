@@ -1,5 +1,6 @@
 import React from "react";
 import "./CarImportCard.css";
+import { BsDot } from "react-icons/bs";
 
 const CarImportCard = () => {
   return (
@@ -12,9 +13,9 @@ const CarImportCard = () => {
             helps you import from trusted international markets with full support.
           </p>
           <ul className="card-list">
-            <li>✔ Verified Dealers</li>
-            <li>✔ Transparent Pricing</li>
-            <li>✔ End-to-End Service</li>
+            <li><BsDot className="dot_icon"/>Verified Dealers</li>
+            <li><BsDot className="dot_icon"/> Transparent Pricing</li>
+            <li><BsDot className="dot_icon"/> End-to-End Service</li>
           </ul>
           <button className="card-btn">REQUEST IMPORT QUOTE</button>
         </div>

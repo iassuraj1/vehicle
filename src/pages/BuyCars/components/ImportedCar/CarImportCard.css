@@ -7,11 +7,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid #294872;
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 0px;
   max-width: 1250px;
  
   margin-bottom: 50px;
@@ -53,17 +53,23 @@
   margin-bottom: 20px;
 }
 
+
 .card-list li {
-  margin: 6px 0;
+  margin: 3px 0;
   font-size: 22px;
   color: #294872;
+}
+
+.card-list .dot_icon{
+
+   font-size: 30px; 
 }
 
 .card-btn {
   background-color: #1976d2;
   color: white;
   border: none;
-  padding: 5px 9px !important;
+  padding: 10px 20px !important;
   border-radius: 5px;
   cursor: pointer;
   font-size: 17px !important;

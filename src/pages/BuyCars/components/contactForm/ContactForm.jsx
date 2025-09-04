@@ -1,6 +1,7 @@
 import React from "react";
 import "./ContactForm.css";
 
+import { FaEnvelope , FaPhoneAlt } from "react-icons/fa";
 const ContactForm = () => {
   return (
     <div className="contact-card">
@@ -13,10 +14,10 @@ const ContactForm = () => {
         </p>
         <div className="contact-details">
           <p>
-            <span className="icon">📧</span> support@ejarmotors.com
+            <span className="icon"><FaEnvelope className="mail_icon"/></span> support@ejarmotors.com
           </p>
           <p>
-            <span className="icon">📞</span> +211 91 234 5678
+            <span className="icon"><FaPhoneAlt className="phone_icon" /></span> +211 91 234 5678
           </p>
         </div>
         <button className="whatsapp-btn">WHATSAPP OUR TEAM</button>

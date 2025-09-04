@@ -10,7 +10,7 @@
 
 .trending-container {
   width: 1200px;
-  border: 1px solid #ddd;
+  border: 1px solid #294872;
   border-radius: 8px;
   padding: 30px;
   margin: 50px auto;
@@ -50,22 +50,29 @@
 .car-card-tranding h3 {
   margin: 10px 0 6px;
   font-size: 22px;
+  text-align: left;
+  padding-left:10px ;
 }
 
 .car-card-tranding p {
   color: #666;
   font-size: 22px;
   margin-bottom: 20px;
+  text-align: left;
+  padding-left: 10px;
+  margin-top: 0px;
 }
 
 .notify-btn {
   background: #fff;
-  border: 1px solid #004080;
-  color: #004080;
-  padding: 8px 12px;
+  border: 2px solid #294872;
+  color: #294872;
+  padding: 8px 30px;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 23px;
+  font-weight: 600;
 }
 
 .notify-btn:hover {

@@ -36,24 +36,29 @@
   display: flex;
   align-items: center;
   margin: 6px 0;
-  font-size: 22px;
+  font-size: 20px;
   color: #294872;
 }
 
 .contact-details .icon {
   margin-right: 8px;
   font-size: 1.2rem;
+  margin-top: 5px;
 }
 
+.icon .mail_icon{
+
+    margin-top: 2px;
+}
 .whatsapp-btn {
   margin-top: 12px;
-  border: 1px solid #003d9f;
+  border: 2px solid #294872;
   background: #fff;
-  color: #003d9f;
-  padding: 10px 16px;
+  color: #294872;
+  padding: 10px 30px;
   border-radius: 6px;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -87,6 +92,7 @@
   font-size: 22px;
   outline: none;
   transition: border 0.2s;
+  font-family: serif;
 }
 
 .contact-form input:focus,
