@@ -6,7 +6,8 @@ import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router} from "react-router-dom";
 
-import BuyCars from "./pages/BuyCars/BuyCars";
+import Home from "./pages/HomePage/Home";
+import BuyCars from "./pages/BuyCars/BuyCar"
 import SellCars from "./pages/SellCars/SellCars";
 import CarListings from "./pages/CarListings/CarListings";
 import CarDetails from "./pages/CarDetails/CarDetails";
@@ -19,7 +20,8 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<BuyCars />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/buy-cars" element={<BuyCars />} />
         <Route path="/sell-cars" element={<SellCars />} />
         <Route path="/car-listings" element={<CarListings />} />
         <Route path="/car-details" element={<CarDetails />} />

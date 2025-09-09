@@ -32,14 +32,14 @@ const TrendingCars = () => {
               <img src={car.image} alt={car.name} className="car-image" />
               <h3>{car.name}</h3>
               <p>{car.price}</p>
-              <button className="notify-btn">NOTIFY WHEN LAUNCHED</button>
+              <button className="notify-btn">NOTIFY WHEN LAUNCHED </button>
             </div>
           ))}
         </div>
 
         {!showAll && (
           <button className="view-btn" onClick={() => setShowAll(true)}>
-            View All Upcoming Cars
+            View All Upcoming Cars →
           </button>
         )}
       </div>

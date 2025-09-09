@@ -1,0 +1,90 @@
+.how-container {
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 40px;
+  border: 1px solid #294872;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+}
+
+.how-container h2 {
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #294872;
+}
+
+.how-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.step-box {
+  flex: 1;
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  text-align: left;
+}
+
+.step-icon {
+  font-size: 40px;
+  color: #294872;
+  /* margin-bottom: 10px; */
+}
+
+.step-box h3 {
+  width: 50%;
+  font-size: 22px;
+  font-weight: bold;
+  color: #294872;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.step-box p {
+    width: 90%;
+    margin-top: 0px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+.step-number {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 272px;
+  font-weight: bold;
+  color: rgba(106, 119, 138, 0.5) ;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.step-box *:not(.step-number) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .how-steps {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-box {
+    text-align: center;
+    padding: 25px 15px;
+  }
+
+  .step-number {
+    font-size: 90px;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -10px;
+  }
+}

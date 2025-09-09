@@ -1,5 +1,5 @@
 import React from "react";
-import HeroSection from "./components/HeroSection/HeroSection";
+import HeroSection from "../../components/HeroSection/HeroSection";
 import CarSearchForm from "./components/CarSearchForm/CarSearchForm";
 import Home from "./components/MostPopularCar/Home";
 import CategoryPage from "./components/MostPopularCar/CategoryPage";

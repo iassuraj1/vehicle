@@ -1,0 +1,48 @@
+.Sport_continer {
+  text-align: center;
+  background-color: #fff;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Car_heading {
+  font-size: 60px;
+  font-weight:600;
+  color: #294872; 
+  margin-bottom: 5px;
+ 
+}
+
+.sportscar_img{
+    padding: 0px;
+}
+ img {
+  width: 100vw;
+  max-width: 1300px; /* keeps it responsive */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+
+}
+
+.Book_test {
+  margin-top: 10px;
+}
+
+.drive_button {
+  background-color: #377CDB; 
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.drive_button:hover {
+  background-color: #155bb5;
+  transform: scale(1.05);
+}

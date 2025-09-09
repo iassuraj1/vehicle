@@ -1,0 +1,134 @@
+.search-container {
+  max-width: 1000px;
+  margin: -40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+.title {
+
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #294872;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+/* Search row */
+.search-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+.input-group .search_input {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #294872;
+  border-radius: 6px;
+  font-size: 17px;
+  color: #555;
+}
+/* .input-group select {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+} */
+.dataInput{
+    width: 100%;
+    padding: 10px 140px 10px 10px ; 
+  border: 1px solid #294872 ;
+  border-radius: 6px ;
+  font-size: 17px ;
+  color: #555;
+}
+
+.dataInput::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input-group .icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.new-car-btn {
+  background: #377CDB;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.new-car-btn:hover {
+  background: #294872;
+}
+
+/* Dropdown row */
+.dropdown-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dropdown-row select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #294872;
+  border-radius: 6px;
+ font-size: 17px ;
+  color: #555;
+}
+
+
+
+/* Budget section */
+.budget-section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.budget-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.budget-section input[type="range"] {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-row, .dropdown-row {
+    flex-direction: column;
+  }
+
+  .new-car-btn {
+    width: 100%;
+  }
+}

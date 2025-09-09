@@ -1,0 +1,83 @@
+:root {
+  --acc-blue: #294872;
+  --acc-text: #333;
+}
+
+/* Wrapper */
+.parent_acc_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.acc__container {
+  max-width: 1300px;
+
+  padding: 40px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Heading */
+.acc__heading {
+  font-size: 30px;          /* as requested */
+  font-weight: 700;
+  color: var(--acc-blue);   /* as requested */
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.acc__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Item */
+.acc__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Icon */
+.acc__icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* Title */
+.acc__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--acc-blue);
+  margin: 6px 0px 6px;
+  
+}
+
+/* Description */
+.acc__desc {
+  font-size: 18px;
+  color: var(--acc-text);
+  line-height: 1.4;
+  margin: 0px;
+  width: 75%;
+
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .acc__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .acc__grid {
+    grid-template-columns: 1fr;
+  }
+}
