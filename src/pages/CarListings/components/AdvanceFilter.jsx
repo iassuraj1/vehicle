@@ -45,7 +45,7 @@ const CarListing = () => {
                     <li><input type="checkbox" /> Isuzu <span>(4)</span></li>
                     <li><input type="checkbox" /> Suzuki <span>(4)</span></li>
                   </ul>
-                  <a href="#" className="see-more">See all Filters ⌄</a>
+                  <a href="/car-listings" className="see-more">See all Filters ⌄</a>
                 </div>
               </aside>
 
@@ -58,7 +58,7 @@ const CarListing = () => {
                     <h3 className="car-title">Toyota Hilux</h3>
                     <p className="rating"><FaStar className="star" /> 4.4 | 124 Reviews</p>
                     <p className="price">
-                      45K – 50K SSP <a href="#">*Get On-Road Price</a>
+                      45K – 50K SSP <a href="/car-listings">*Get On-Road Price</a>
                     </p>
                     <p className="details">*Ex-Showroom Price • 12 km/l • 2755 cc • 7 Seater</p>
                     <button className="btn">View Details</button>
@@ -72,7 +72,7 @@ const CarListing = () => {
                     <h3 className="car-title">Mercedes-Benz GLE</h3>
                     <p className="rating"><FaStar className="star" /> 4.1 | 170 Reviews</p>
                     <p className="price">
-                      120K – 140K SSP <a href="#">*Get On-Road Price</a>
+                      120K – 140K SSP <a href="/car-listings">*Get On-Road Price</a>
                     </p>
                     <p className="details">*Ex-Showroom Price • 12 km/l • 2755 cc • 7 Seater</p>
                     <button className="btn">View Details</button>
