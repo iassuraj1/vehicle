@@ -29,13 +29,14 @@ body {
   border: 1px solid #294872;
   border-radius: 8px;
   font-size: 14px;
+  width: 350px;
 }
 
 .filter-title {
   font-size: 30px;
   font-weight: bold;
   margin-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: #294872;
   padding: 20px;
 }
@@ -43,7 +44,7 @@ body {
 .filter-subtitle {
   font-size: 30px;
   font-weight: bold;
-  margin: 20px 0 5px;
+  margin: 0px 0 5px;
   color: #294872;
 }
 
@@ -75,6 +76,7 @@ body {
 
 .horizontal_line{
   border-color: #294872;
+  margin: 0px;
 }
 .ad_search-box input {
     width: 400px;
