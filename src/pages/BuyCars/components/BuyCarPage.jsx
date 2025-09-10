@@ -220,7 +220,7 @@ export default function BuyCarPage() {
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("budget")}>
               <span>Budget</span>
-              <span className="buycar-expand-icon">{expanded.budget ? "–" : "+"}</span>
+              <span className="buycar-toggle-icon">{expanded.budget ? "–" : "+"}</span>
             </h4>
             {expanded.budget && (
               <div style={{ marginTop: 8 }}>
@@ -248,7 +248,7 @@ export default function BuyCarPage() {
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("brand")}>
               <span>Brand</span>
-              <span className="buycar-expand-icon">{expanded.brand ? "–" : "+"}</span>
+              <span className="buycar-toggle-icon">{expanded.brand ? "–" : "+"}</span>
             </h4>
             {expanded.brand && (
               <>
@@ -291,7 +291,7 @@ export default function BuyCarPage() {
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("vehicle")}>
               <span>Vehicle Type</span>
-              <span className="buycar-expand-icon">{expanded.vehicle ? "–" : "+"}</span>
+              <span className="buycar-toggle-icon">{expanded.vehicle ? "–" : "+"}</span>
             </h4>
             {expanded.vehicle && (
               <div className="buycar-checkbox-group" style={{ marginTop: 8 }}>
@@ -315,7 +315,7 @@ export default function BuyCarPage() {
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("fuel")}>
               <span>Fuel Type</span>
-              <span className="buycar-expand-icon">{expanded.fuel ? "–" : "+"}</span>
+              <span className="buycar-toggle-icon">{expanded.fuel ? "–" : "+"}</span>
             </h4>
             {expanded.fuel && (
               <div className="buycar-checkbox-group" style={{ marginTop: 8 }}>

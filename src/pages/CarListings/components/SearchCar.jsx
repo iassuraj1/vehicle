@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FaSearch, FaCalendarAlt } from "react-icons/fa";
-import "./SearchCar.css"
+import "./SearchCar.css";
 
 function SearchCar() {
-  const [budget, setBudget] = useState(3000000);
+  const [budget, setBudget] = useState(300000);
+  // const [maxBudget, setMaxBudget] = useState(15000000);
 
   return (
     <div className="search-container">
@@ -12,7 +13,11 @@ function SearchCar() {
       {/* Search Row */}
       <div className="search-row">
         <div className="input-group">
-          <input className="search_input" type="text" placeholder="Search Cars" />
+          <input
+            className="list-search-input"
+            type="text"
+            placeholder="Search Cars"
+          />
           <FaSearch className="icon" />
         </div>
         <button className="new-car-btn">NEW CAR ▾</button>
@@ -27,12 +32,13 @@ function SearchCar() {
           <option>Model</option>
         </select>
         <div className="input-group">
-          <input className="dataInput" type="date" id="data" name="date" value="date"/>
+          <input className="date-input" type="text" placeholder="Year" />
           <FaCalendarAlt className="icon" />
         </div>
       </div>
 
       {/* Budget Slider */}
+          {/* Budget Slider */}
       <div className="budget-section">
         <label>Budget</label>
         <div className="budget-values">
@@ -47,7 +53,7 @@ function SearchCar() {
           onChange={(e) => setBudget(e.target.value)}
         />
       </div>
-    </div>
+   </div>
   );
 }
 

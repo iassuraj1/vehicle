@@ -25,7 +25,7 @@ body {
 .filters {
   flex: 1;
   background: #fff;
-  padding: 20px;
+  /* padding: 20px; */
   border: 1px solid #294872;
   border-radius: 8px;
   font-size: 14px;
@@ -37,6 +37,7 @@ body {
   margin-top: 0px;
   margin-bottom: 20px;
   color: #294872;
+  padding: 20px;
 }
 
 .filter-subtitle {
@@ -79,11 +80,20 @@ body {
     width: 400px;
   padding-right: 60px;
   flex: 1;
-  padding: 6px;
+  padding: 10px;
   border: 1px solid #294872;
   border-radius: 4px 0 0 4px;
-  margin: 5px 0px 5px 0px;
-  
+  margin: 0px 0px 0px 0px;
+  border-right: none;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.ad_search-box button{
+  padding: 10px;
+  border-left: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
 .search-box button {
@@ -190,4 +200,8 @@ body {
   .car-card img {
     width: 100%;
   }
+}
+
+.filter-box{
+  padding: 20px;
 }

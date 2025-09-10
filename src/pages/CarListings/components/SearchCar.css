@@ -7,23 +7,18 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-
-
 .title {
-
   text-align: center;
   font-size: 30px;
   font-weight: bold;
   color: #294872;
   margin-bottom: 20px;
-  margin-top: 0px;
 }
 
-/* Search row */
+/* Search Row */
 .search-row {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
   margin-bottom: 15px;
 }
 
@@ -32,39 +27,18 @@
   flex: 1;
 }
 
-.input-group .search_input {
-  width: 100%;
-  padding: 10px 35px 10px 12px;
-  border: 1px solid #294872;
-  border-radius: 6px;
-  font-size: 17px;
-  color: #555;
-}
-/* .input-group select {
-  width: 100%;
-  padding: 10px 35px 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.9rem;
-} */
-.dataInput{
-    width: 100%;
-    padding: 10px 140px 10px 10px ; 
-  border: 1px solid #294872 ;
-  border-radius: 6px ;
-  font-size: 17px ;
-  color: #555;
-}
-
-.dataInput::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-  appearance: none;
+.list-search-input, .date-input {
+   width: 98%;
+    padding: 10px 0px 10px 12px;
+    border: 1px solid #294872;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #555;
 }
 
 .input-group .icon {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: #555;
@@ -74,9 +48,11 @@
   background: #377CDB;
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -84,32 +60,33 @@
   background: #294872;
 }
 
-/* Dropdown row */
+/* Dropdown Row */
 .dropdown-row {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
 .dropdown-row select {
   flex: 1;
-  padding: 10px;
+  padding: 10px 12px;
   border: 1px solid #294872;
   border-radius: 6px;
- font-size: 17px ;
+  font-size: 17px;
   color: #555;
 }
 
-
-
+/* Budget Section */
 /* Budget section */
 .budget-section label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
+.budget-section label{
+  font-size: 30px;
+  color: #294872;
+}
 .budget-values {
   display: flex;
   justify-content: space-between;

@@ -21,12 +21,15 @@
 
 /* Sidebar */
 .buycar-sidebar {
-  width: 300px;
+  width: 350px;
   background: #fff;
   border: 1px solid #294872;
   border-radius: 8px;
-  padding: 18px;
+
   box-shadow: 0 6px 18px rgba(32,40,60,0.04);
+}
+.buycar-section{
+  padding: 20px;
 }
 
 .buycar-section-title {
@@ -61,9 +64,10 @@
 
 /* filter section */
 .buycar-filter {
-  border-top: 1px solid #d1dbe8;
+  border-top: 1px solid #294872;
   padding-top: 12px;
   margin-top: 12px;
+  padding: 20px;
 }
 
 .buycar-filter h4 {
@@ -80,6 +84,7 @@
 .buycar-expand-icon {
   font-size: 18px;
   color: #6b7b8c;
+  padding-right: 20px;
 }
 
 /* brand search box inside sidebar */
@@ -154,7 +159,7 @@
   gap: 8px;
   align-items: center;
   background: #fff;
-  border: 1px solid #d1dbe8;
+  border: 1px solid #294872;
   padding: 6px 10px;
   border-radius: 20px;
   font-weight: 600;
@@ -169,6 +174,7 @@
   background: transparent;
   border-style: dashed;
   color: #6b7b8c;
+  border: 1px solid #294872;
 }
 
 /* sort/select */
@@ -185,7 +191,7 @@
 .buycar-select {
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid #d1dbe8;
+  border: 1px solid #294872;
   background: #fff;
   font-size: 17px;
 }
