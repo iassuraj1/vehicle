@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {  FaBars, FaTimes } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi"; 
 import "./MainHeader.css";
+import { Link } from "react-router-dom";
 
 const SearchBox = ({ placeholder, onChange }) => {
   return (
@@ -29,11 +30,14 @@ export default function MainHeader() {
     <header className="header">
       {/* Left side: logo + city + search (desktop/tablet), only logo on mobile */}
       <div className="header-left">
-        <img
-          src="./HomePageImages/site_logo1.jpg"
-          alt="logo"
-          className="logo"
-        />
+
+        <Link to="/">
+          <img
+            src="./HomePageImages/site_logo1.jpg"
+            alt="logo"
+            className="logo"
+          />
+        </Link>
 
         {/* Hidden on mobile, visible on desktop/tablet */}
         <select

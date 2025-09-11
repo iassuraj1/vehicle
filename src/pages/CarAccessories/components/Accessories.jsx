@@ -37,7 +37,8 @@ export default function Accessories() {
   const visible = showAll ? allItems : sections[active];
 
   return (
-    <div className="acc-wrap">
+    <div className="acc-continer">
+      <div className="acc-wrap">
       <div className="acc-box">
         <div className="acc-header">
           <h2>Accessories We Offer</h2>
@@ -90,5 +91,8 @@ export default function Accessories() {
         )}
       </div>
     </div>
-  );
+  
+    </div>
+    );
+    
 }

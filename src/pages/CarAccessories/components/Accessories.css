@@ -6,11 +6,17 @@
   --acc-radius: 10px;
 }
 
-.acc-wrap {
-  width: 100%;
+.acc-continer{
   display: flex;
   justify-content: center;
-  padding: 18px;
+}
+
+.acc-wrap {
+  width: 1300px;
+  display: flex;
+  justify-content: center;
+ 
+ 
 }
 
 .acc-box {
