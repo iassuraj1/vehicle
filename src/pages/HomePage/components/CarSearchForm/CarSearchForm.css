@@ -64,15 +64,15 @@
   outline: none;
   font-size: 17px;
   color: var(--muted);
-  transition: border-color .15s, box-shadow .15s;
+  /* transition: border-color .15s, box-shadow .15s; */
 }
 .search_cars input:focus,
 .model_option input[type="date"]:focus,
 .search_cars select:focus,
 .model_option select:focus{
   border-color: var(--blue);
-  color: var(--border);
-  box-shadow: 0 0 0 3px rgba(55,124,219,.15);
+  color: black;
+  /* box-shadow: 0 0 0 3px rgba(55,124,219,.15); */
 }
 
  #make_box  {
@@ -93,11 +93,11 @@
   border-radius: 5px;
  
 }
-
+/* 
 .calander_input::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
-}
+} */
 
 .calander_icon{
   width: 80px;
@@ -294,3 +294,46 @@
 
 
 
+
+
+
+.calendar_paragraph {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px; /* adjust as needed */
+}
+
+.calendar_input {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px 0 14px; /* padding-right for icon space */
+  border: 1px solid var(--deep);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--muted);
+  background: #fff;
+  outline: none;
+  
+  /* hide the native picker icon but keep input clickable */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.calendar_input::-webkit-calendar-picker-indicator {
+  opacity: 0;         /* hide default icon */
+  cursor: pointer;    /* still clickable */
+  position: absolute; 
+  right: 0;
+  width: 100%;        /* make sure the field is clickable */
+  height: 100%;
+}
+
+.calendar_icon {
+  position: absolute;
+  right: 12px;
+  font-size: 20px;
+  color: var(--deep);
+  pointer-events: none; /* ensures clicks go to input, not the icon */
+}

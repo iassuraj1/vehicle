@@ -68,12 +68,16 @@ export default function CarSearchForm(){
                      <FaChevronDown id="box_dropdown"/>
                     </p>
                     
-                    <p className="calander_paragraph">
+                    {/* <p className="calander_paragraph">
                         <input className="calander_input" type="date" placeholder="Year"/>
                         <FaRegCalendarAlt className="calander_icon"/>
+                    </p> */}
+
+                    <p className="calendar_paragraph">
+                        <input className="calendar_input" type="date" />
+                        <FaRegCalendarAlt className="calendar_icon" />
                     </p>
 
-                    
 
 
 
@@ -83,9 +87,10 @@ export default function CarSearchForm(){
 
                     <div className="single-slider">
                         <label className="budget" htmlFor="budget">
-                            SSP 300,000 - SSP 15,000,000 <br />
+                            SSP 300,000 - SSP {budget} <br />
                             {/* Selected: {budget.toLocaleString()} */}
                         </label>
+                        
                         <input
                             type="range"
                             id="budget"
@@ -96,10 +101,12 @@ export default function CarSearchForm(){
                             value={budget}
                             onChange={(e) => setBudget(Number(e.target.value))}
                         />
+                        
                       </div>
+                      <Link to="/buy-cars">
                       <button className="advance_search">Advanced Search</button>
                       <FaPlay className="play_button"/>
-
+                       </Link> 
                 </div>
                 
 

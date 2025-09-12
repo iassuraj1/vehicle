@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import {  FaBars, FaTimes } from "react-icons/fa";
-import { FiSearch } from "react-icons/fi"; 
+// import { FiSearch } from "react-icons/fi"; 
 import "./MainHeader.css";
 import { Link } from "react-router-dom";
 
-const SearchBox = ({ placeholder, onChange }) => {
-  return (
-    <div className="search-box">
+// const SearchBox = ({ placeholder, onChange }) => {
+//   return (
+//     <div className="search-box">
      
-      <input  
-        type="text"
-        placeholder={placeholder || "Select by make"}
-        onChange={onChange}
-      />
-       <FiSearch className="search-icon" />
-    </div>
-  );
-};
+//       <input  
+//         type="text"
+//         placeholder={placeholder || "Select by make"}
+//         onChange={onChange}
+//       />
+//        <FiSearch className="search-icon" />
+//     </div>
+//   );
+// };
 
 export default function MainHeader() {
-  const [city, setCity] = useState("");
+  // const [city, setCity] = useState("");
   const [language, setLanguage] = useState("English");
   const [registerOption, setRegisterOption] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function MainHeader() {
         </Link>
 
         {/* Hidden on mobile, visible on desktop/tablet */}
-        <select
+        {/* <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
           className="dropdown header-left-city"
@@ -51,7 +51,7 @@ export default function MainHeader() {
           <option value="Sharjah">Sharjah</option>
         </select>
 
-        <SearchBox placeholder="Select by make" />
+        <SearchBox placeholder="Select by make" /> */}
       </div>
 
       {/* Right side: visible on desktop/tablet */}
@@ -63,7 +63,7 @@ export default function MainHeader() {
         >
           <option>English</option>
           <option>Arabic</option>
-          <option>French</option>
+          {/* <option>French</option> */}
         </select>
 
         <button className="contact-btn">CONTACT US</button>
@@ -73,9 +73,9 @@ export default function MainHeader() {
           onChange={(e) => setRegisterOption(e.target.value)}
           className="register-dropdown"
         >
-          <option value="">Register</option>
-          <option value="User">As User</option>
-          <option value="Dealer">As Dealer</option>
+          <option value="login">Login</option>
+          <option value="signout">Sign out</option>
+    
         </select>
       </div>
 
@@ -87,7 +87,7 @@ export default function MainHeader() {
       {/* Mobile dropdown menu */}
       {menuOpen && (
         <div className="mobile-menu">
-          <select
+          {/* <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
             className="dropdown"
@@ -98,7 +98,7 @@ export default function MainHeader() {
             <option value="Sharjah">Sharjah</option>
           </select>
 
-          <SearchBox placeholder="Select by make" />
+          <SearchBox placeholder="Select by make" /> */}
 
           <select
             value={language}
@@ -107,7 +107,7 @@ export default function MainHeader() {
           >
             <option>English</option>
             <option>Arabic</option>
-            <option>French</option>
+       
           </select>
 
           <button className="contact-btn">CONTACT US</button>
@@ -117,9 +117,8 @@ export default function MainHeader() {
             onChange={(e) => setRegisterOption(e.target.value)}
             className="register-dropdown"
           >
-            <option value="">Register</option>
-            <option value="User">As User</option>
-            <option value="Dealer">As Dealer</option>
+            <option value="login">Login</option>
+            <option value="signout">Sign out</option>
           </select>
         </div>
       )}

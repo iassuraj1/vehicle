@@ -21,7 +21,7 @@ const CarImportCard = () => {
         </div>
 
         <div className="car-card-image">
-          <img
+          <img  className="hassle_car"
             src="/HomePageImages/bentley-flying.jpg" 
             alt="Luxury Car"
           />

@@ -22,14 +22,15 @@
 .contact-info h2 {
   font-size: 30px;
   color: #294872;
-  margin: 0;
-  margin-bottom: 12px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .contact-info p {
   font-size: 22px;
   color: #294872;
   margin-bottom: 12px;
+  margin-top: 0px;
 }
 
 .contact-details p {
@@ -51,7 +52,7 @@
     margin-top: 2px;
 }
 .whatsapp-btn {
-  margin-top: 12px;
+  margin-top: 30px;
   border: 2px solid #294872;
   background: #fff;
   color: #294872;
@@ -93,7 +94,7 @@
   font-size: 22px;
   outline: none;
   transition: border 0.2s;
-  font-family: serif !important;
+  font-family: sans-serif !important;
 }
 
 .contact-form input:focus,
