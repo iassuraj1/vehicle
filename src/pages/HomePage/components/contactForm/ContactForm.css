@@ -93,7 +93,7 @@
   font-size: 22px;
   outline: none;
   transition: border 0.2s;
-  font-family: serif;
+  font-family: serif !important;
 }
 
 .contact-form input:focus,
