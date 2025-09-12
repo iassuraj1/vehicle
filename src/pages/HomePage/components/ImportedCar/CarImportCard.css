@@ -33,7 +33,8 @@
 .card-title {
   font-size: 1.5rem;
   color: #294872;
-  margin-bottom: 12px; 
+  margin-bottom: 0px;
+  margin-top: 20px !important; 
 
 }
 

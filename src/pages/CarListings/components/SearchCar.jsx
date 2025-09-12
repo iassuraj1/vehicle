@@ -20,7 +20,10 @@ function SearchCar() {
           />
           <FaSearch className="icon" />
         </div>
-        <button className="new-car-btn">NEW CAR ▾</button>
+        <select className="new-car-btn">
+          <option value="newcar">NEW CAR</option>
+          <option value="oldcar">OLD CAR</option>
+          </select>
       </div>
 
       {/* Dropdowns */}

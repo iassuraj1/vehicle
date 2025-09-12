@@ -1,5 +1,5 @@
 .continer{
-  
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -15,7 +15,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     padding: 30px;
-    height: 85vh;
+    height: 600px;
     width: 1200px;
 
     justify-content: space-between;
@@ -25,13 +25,14 @@
 .Heading{
     display: flex;
     flex-direction: row;
-    align-items: center;
     color: #294872;
-    text-align: center;
+    justify-content: center;
     line-height: 1em;
     width: 60vw;
     font-size: 60px;
     margin-top: 10px;
+    font-family: 'Abhaya Libre';
+
 
 
 }

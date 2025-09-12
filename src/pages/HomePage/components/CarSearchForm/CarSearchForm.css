@@ -156,13 +156,22 @@
   border: 1px solid var(--border);
 }
 .advance_search{
-  margin: 20px 0px 0px 10px;
+  margin-left: 10px;
   font-size: 20px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.advance_search:hover{
+  color: #377CDB;
 }
 .play_button{
   color: var(--deep);
-  margin-top: 28px;
+  margin-top: 30px;
   margin-left: 5px;
+}
+.play_button:hover{
+  color: #377CDB;
 }
 
 .budget{
@@ -213,8 +222,8 @@
   background: #fff;
 }
 
-.sell_car_icon::before{
-  content: "Sell your Car";
+.sell_car_icon h1{
+  /* content: "Sell your Car"; */
   display: block;
   color: var(--deep);
   font-weight: 600;
@@ -222,6 +231,7 @@
   margin-bottom: 12px;
   padding-left:30px ;
   padding-bottom: 10px;
+  margin-top: 0px;
 }
 
 .sell_car_icon > div{
@@ -257,7 +267,8 @@
 
 .sell_btn{
   margin-top: 14px;
-  width: 100%;
+  margin-left: 25px;
+  width: 90%;
   height: 42px;
   border: 0;
   border-radius: 8px;

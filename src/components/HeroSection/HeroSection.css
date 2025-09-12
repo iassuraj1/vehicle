@@ -45,9 +45,11 @@
     color: white;
     background-color: #377CDB;
     text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.submit_button{
+.sell_button{
     border: 3px solid #294872;
     padding: 5px 20px 5px 20px;
     border-radius: 5px;
@@ -56,6 +58,7 @@
     color: #294872;
     background: transparent;
     text-transform: uppercase;
+    
 }
 
 /* mobile view  */

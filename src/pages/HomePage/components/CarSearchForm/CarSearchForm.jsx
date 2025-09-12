@@ -2,14 +2,26 @@ import { FaShieldAlt,FaBullhorn,  FaClock ,FaSearch , FaChevronDown,
      FaRegCalendarAlt , FaPlay} from "react-icons/fa";
 import { useState } from "react";
 import './CarSearchForm.css'
+import { Link } from "react-router-dom";
+
+
 export default function CarSearchForm(){
-     const [budget, setBudget] = useState(300000);
+
+  
+    const  options = [
+          
+            {value : "/buy-cars" , button: "BUY CAR" ,label:"Buy"},
+            {value : "/sell-cars" , button: "SELL CAR", label:"Sell"},
+    ]
+    const [selectedOption, setSelectedOption] = useState(options[0]);
+    const [budget, setBudget] = useState(300000);
+
 
     return (
         <div className="form-box">
             <div className="serach-box">    
 
-                <h1> Buy a Car</h1>
+                <h1>{selectedOption.label} a Car</h1>
                 <div className="search_cars">
                     <p className="search_car_placeholder">
                         <input  type="serach" placeholder="Search Cars"/>
@@ -19,9 +31,17 @@ export default function CarSearchForm(){
                     
 
                     
-                    <select id="car_type">
-                        <option value= "new_car"> NEW CAR</option> 
-                        <option value= "old_car"> OLD CAR</option>
+                    <select id="car_type"
+                        value={selectedOption.value}
+                        onChange={(e)=>{
+                            const selected = options.find(opt=> opt.value===e.target.value)
+                            setSelectedOption(selected)
+                        }
+
+                    }>
+
+                        <option value= "/buy-cars"> BUY CAR</option> 
+                        <option value= "/sell-cars"> SELL CAR</option>
                     </select>
                     <FaChevronDown className="dropdown-icon" />
                     
@@ -77,7 +97,7 @@ export default function CarSearchForm(){
                             onChange={(e) => setBudget(Number(e.target.value))}
                         />
                       </div>
-                      <p className="advance_search">Advanced Search</p>
+                      <button className="advance_search">Advanced Search</button>
                       <FaPlay className="play_button"/>
 
                 </div>
@@ -87,6 +107,7 @@ export default function CarSearchForm(){
             </div>
 
             <div className="sell_car_icon">
+                <h1> {selectedOption.label} Your Car</h1>
                     
                 <div  className="sell_car_grid">
     
@@ -115,7 +136,9 @@ export default function CarSearchForm(){
                         </div>
 
                 </div>
-                <button className="sell_btn">SELL CAR</button>
+                <Link to={selectedOption.value}>
+                     <button className="sell_btn">{selectedOption.button}</button>
+                </Link>
 
             </div>
         </div>

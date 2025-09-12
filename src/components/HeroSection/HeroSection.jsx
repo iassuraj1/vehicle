@@ -1,5 +1,6 @@
 import React from 'react'; 
 import "./HeroSection.css"
+import { Link } from 'react-router-dom';
 export default function HeroSection(){
 
     return (
@@ -13,8 +14,16 @@ export default function HeroSection(){
 
             <div className='search'>
 
+                <Link to="/car-listings">
                 <search className="search_button"> SEARCH CARS NOW</search>
-                <button className="submit_button"> Sell  Cars</button>
+               </Link>
+
+                <Link to="/sell-cars">
+                    <button className="sell_button"> Sell  Cars</button>
+
+                </Link>
+
+               
 
             </div>
             </div> 
