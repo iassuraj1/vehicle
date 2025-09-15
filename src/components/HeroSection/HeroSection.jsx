@@ -1,15 +1,19 @@
+
+
+
+
 import React from 'react'; 
 import "./HeroSection.css"
 import { Link } from 'react-router-dom';
-export default function HeroSection(){
+export default function HeroSection({heading ,subHeading ,url}){
 
     return (
-        <div className="Hero"  style={{ backgroundImage: "url('/HomePageImages/Banner_image2.jpg')"}}>
+        <div className="Hero"  style={{ backgroundImage: url}}>
 
            <div className="main-text">
             
-            <h1 className="headline"> Buy, Sell, or Import All Your Car Needs in One Place</h1>
-            <p className="heading_paragraph"> Discover verified new and used cars, connect with trusted dealers, or reqest direct  car imports - all in one place</p>
+            <h1 className="headline"> {heading}</h1>
+            <p className="heading_paragraph"> {subHeading}</p>
 
 
             <div className='search'>

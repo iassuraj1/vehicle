@@ -16,3 +16,5 @@ large width : 1300px
 
 
 search_color  = #555
+
+serach_color_icon =#6B7A90

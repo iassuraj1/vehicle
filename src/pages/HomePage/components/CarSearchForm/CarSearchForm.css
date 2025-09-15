@@ -3,19 +3,20 @@
   --deep:#294872;
   --border:#DFE6EE;
   --muted:#6B7A90;
+  /* --muted:#ff0000; */
   --bg:#F4F6FA;
 }
 
 .form-box{
   max-width: 1100px;
-  margin: -30px auto;
+  margin: -50px auto;
   display: grid;
   grid-template-columns: 2fr 1fr; 
   gap: 24px;
   background: #fff;
   padding: 10px 20px;
   border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(2, 7, 15, 0.7);
+  box-shadow: 0 6px 16px rgba(2, 7, 15, 0.2);
   align-items: start;
 }
 
@@ -337,3 +338,5 @@
   color: var(--deep);
   pointer-events: none; /* ensures clicks go to input, not the icon */
 }
+
+

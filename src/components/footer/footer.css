@@ -10,13 +10,18 @@
     font-family: "Abhaya Libre";
 }
 
-.paragraph{
-    color: #294872;
-    font-size: 22px  ;
-}
 
 .Motors_Heading{
     font-size: 40px;
-     font-family: "Abhaya Libre";
+     /* font-family: "Abhaya Libre"; */
+     font-family: sans-serif;
+     text-transform: uppercase;
+     font-weight: 500;
+     margin-bottom: 0px;
 }
 
+.paragraph{
+    
+    color: #294872;
+    font-size: 22px  ;
+}

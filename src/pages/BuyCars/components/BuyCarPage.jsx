@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Mercedes from "../../../assets/BuyCar/Mercedes.jpg"
 import toyota from "../../../assets/BuyCar/toyota.png"
+import { FaSearch } from "react-icons/fa";
 import "./BuyCarPage.css";
 
 /**
@@ -13,7 +14,7 @@ const CARS = [
     name: "Toyota Hilux",
     brand: "Toyota",
     condition: "New",
-    type: "SUV",
+    type: "SUV", 
     fuel: "Diesel",
     rating: 4.4,
     price: 48000,
@@ -115,8 +116,8 @@ export default function BuyCarPage() {
   const [expanded, setExpanded] = useState({
     budget: true,
     brand: true,
-    vehicle: true,
-    fuel: true,
+    vehicle: false,
+    fuel: false,
     transmission: false,
     features: false,
   });
@@ -231,13 +232,13 @@ export default function BuyCarPage() {
                 </div>
                 <div className="buycar-checkbox-group" style={{ marginTop: 8 }}>
                   <label className="buycar-checkbox">
-                    <input type="checkbox" disabled /> 7.85L - 15.7L SSP (3)
+                    <input type="checkbox"  /> 7.85L - 15.7L SSP (3)
                   </label>
                   <label className="buycar-checkbox">
-                    <input type="checkbox" disabled /> 15.7L - 23.5L SSP (4)
+                    <input type="checkbox" /> 15.7L - 23.5L SSP (4)
                   </label>
                   <label className="buycar-checkbox">
-                    <input type="checkbox" disabled /> 23.5L - 31.4L SSP (6)
+                    <input type="checkbox"  /> 23.5L - 31.4L SSP (6)
                   </label>
                 </div>
               </div>
@@ -264,7 +265,8 @@ export default function BuyCarPage() {
                     onClick={() => setBrandSearch("")}
                     className="buycar-brand-clear"
                   >
-                    ✕
+                    <FaSearch  />
+                    
                   </button>
                 </div>
 
@@ -469,7 +471,7 @@ export default function BuyCarPage() {
                     }
                     title={`Remove ${c.label}`}
                   >
-                    {c.label} <span className="buycar-chip-x">✕</span>
+                    {c.label} <span className="buycar-chip-x">X</span>
                   </button>
                 ))}
                 <button className="buycar-chip buycar-chip-clear" onClick={clearAll}>

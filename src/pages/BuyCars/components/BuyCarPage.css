@@ -90,7 +90,7 @@
 /* brand search box inside sidebar */
 .buycar-brand-search {
   display: flex;
-  gap: 8px;
+ 
   margin-top: 10px;
   align-items: center;
 }
@@ -102,12 +102,22 @@
   font-size: 17px;
 }
 .buycar-brand-clear {
+  position: absolute;
   background: transparent;
-  border: 1px solid #d1dbe8;
+  border: none;
+  left: 390px;
+  /* border: 1px solid #d1dbe8; */
   padding: 8px 10px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  font-size: 15px;
   cursor: pointer;
+  color :#6B7A90
+  
+  
+  
+
 }
+
 
 /* checkbox group appearance */
 .buycar-checkbox-group {
@@ -146,28 +156,32 @@
   margin: 0;
   font-size: 30px;
   color: #294872;
+  font-weight: 600;
 }
 
 /* chips */
 .buycar-chips {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .buycar-chip {
   display: inline-flex;
-  gap: 8px;
+  gap: 16px;
   align-items: center;
   background: #fff;
   border: 1px solid #294872;
   padding: 6px 10px;
-  border-radius: 20px;
+  border-radius: 6px;
   font-weight: 600;
-  color: #405a75;
+  color: #555;
   cursor: pointer;
   font-size: 17px;
 }
-.buycar-chip .buycar-chip-x { color: #6b7b8c; margin-left: 6px; font-weight: 700; }
+.buycar-chip .buycar-chip-x {
+   color: #6b7b8c;
+    margin-left: 6px;
+    font-weight: 700; }
 
 /* clear chip slightly different */
 .buycar-chip-clear {
@@ -236,7 +250,7 @@
   margin: 0;
   font-size: 30px;
   color: #294872;
-  font-weight: 800;
+  font-weight: 600;
 }
 .buycar-rating { color: #f5b800; font-weight: 700; font-size: 13px; margin-left: 6px; }
 
@@ -275,10 +289,10 @@
 .buycar-btn-primary {
   background: #2f80ed;
   color: #fff;
-  padding: 10px 30px;
+  padding: 6px 50px;
   border-radius: 8px;
   border: 0;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   font-size: 23px;
 }

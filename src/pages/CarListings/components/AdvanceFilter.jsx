@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSearch,  FaStar } from "react-icons/fa";
 import toyotaImg from "../../../assets/CarListingImage/toyota.jpg";
-import mercedesImg from "../../../assets/CarListingImage/mercedes.jpg";
+import mercedesImg from "../../../assets/CarListingImage/Mercedes1.jpg";
 import "./AdvanceFilter.css";
 
 // FaCar, FaMoneyBill,
@@ -22,7 +22,7 @@ const CarListing = () => {
                   
                   <p className="range-label">SSP 300,000 - SSP 15,000,000</p>
                   <input type="range" min="300000" max="15000000" className="range-slider" />
-
+                  <p className="ad_description">Or select from the range below</p>
                   <ul className="filter-list">
                     <li><input type="checkbox" /> 7.85L – 15.7L SSP <span>(3)</span></li>
                     <li><input type="checkbox" /> 15.7L – 23.55L SSP <span>(4)</span></li>
@@ -60,7 +60,7 @@ const CarListing = () => {
                     <p className="price">
                       45K – 50K SSP <a href="/car-listings">*Get On-Road Price</a>
                     </p>
-                    <p className="details">*Ex-Showroom Price • 12 km/l • 2755 cc • 7 Seater</p>
+                    <p className="details">*Ex-Showroom Price {<br/>}• 12 km/l • 2755 cc • 7 Seater</p>
                     <button className="btn">View Details</button>
                   </div>
                 </div>

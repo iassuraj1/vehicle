@@ -30,9 +30,11 @@ function SearchCar() {
       <div className="dropdown-row">
         <select>
           <option>Make</option>
+          <option>Make</option>
         </select>
         <select>
           <option>Model</option>
+          <option>XUV</option>
         </select>
         <div className="input-group">
           <input className="date-input" type="text" placeholder="Year" />

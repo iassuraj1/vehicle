@@ -34,7 +34,7 @@ body {
 
 .filter-title {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 550;
   margin-top: 0px;
   margin-bottom: 0px;
   color: #294872;
@@ -43,7 +43,7 @@ body {
 
 .filter-subtitle {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 550;
   margin: 0px 0 5px;
   color: #294872;
 }
@@ -51,13 +51,17 @@ body {
 .range-label {
   font-size: 14px;
   color: #555;
+  margin-bottom: 0px;
 }
 
 .range-slider {
   width: 100%;
-  margin: 10px 0;
+  margin: 10px 0px 0px;
 }
-
+.ad_description{
+  color: #555;
+  font-size: 14px;
+}
 .filter-list {
   list-style: none;
   margin-bottom: 10px;
@@ -84,18 +88,20 @@ body {
   flex: 1;
   padding: 10px;
   border: 1px solid #294872;
-  border-radius: 4px 0 0 4px;
+  border-radius: 6px;
   margin: 0px 0px 0px 0px;
-  border-right: none;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
 
 .ad_search-box button{
+  position: absolute;
+  left: 26%;
   padding: 10px;
-  border-left: none;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 6px;
+  background-color: transparent;
+  color: #555;
 }
 
 .search-box button {
@@ -132,18 +138,23 @@ body {
 }
 
 .car-card img {
-  width: 360px;
-  height: auto;
+  width: 460px;
+  height: 280px;
   object-fit: cover;
 }
 
 .car-info {
   padding: 15px;
+  padding-left: 30px;
 }
 
 .car-title {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 550;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  color: #294872;
+  
 }
 
 .rating {
@@ -152,6 +163,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-top: 0px;
 }
 
 .star {
@@ -162,6 +174,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   color: #1d2d50;
+  margin-bottom: 0px;
 }
 
 .price a {
@@ -177,14 +190,17 @@ body {
 }
 
 .btn {
-  padding: 10px 20px;
-  background: #1d62f0;
+  padding: 10px 60px;
+  background: #377CDB;
   border: none;
   border-radius: 6px;
   color: #fff;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 23px;
+  font-weight: 550;
   cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 20px;
+
 }
 
 .btn:hover {
