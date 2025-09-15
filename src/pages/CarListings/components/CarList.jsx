@@ -1,6 +1,6 @@
 import React from "react";
 import "./CarList.css";
-import mercedesImg from "../../../assets/CarListingImage/mercedes.jpg";
+import mercedesImg from "../../../assets/CarListingImage/Mercedes1.jpg";
 import BentleyImg from "../../../assets/CarListingImage/Bentley.jfif";
 import Lamborghini_UrusImg from "../../../assets/CarListingImage/Lamborghini_Urus.jfif";
 import Lamborghini from "../../../assets/CarListingImage/Lamborghini.jfif";

@@ -79,7 +79,8 @@ body {
 }
 
 .horizontal_line{
-  border-color: #294872;
+  border: 1px solid #294872;
+
   margin: 0px;
 }
 .ad_search-box input {
@@ -119,6 +120,7 @@ body {
   display: inline-block;
   margin-top: 10px;
   text-decoration: none;
+  margin: 20px;
 }
 
 /* Car Listings */

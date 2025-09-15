@@ -3,6 +3,8 @@ import { FaSearch,  FaStar } from "react-icons/fa";
 import toyotaImg from "../../../assets/CarListingImage/toyota.jpg";
 import mercedesImg from "../../../assets/CarListingImage/Mercedes1.jpg";
 import "./AdvanceFilter.css";
+import { Link } from "react-router-dom";
+
 
 // FaCar, FaMoneyBill,
 const CarListing = () => {
@@ -45,8 +47,10 @@ const CarListing = () => {
                     <li><input type="checkbox" /> Isuzu <span>(4)</span></li>
                     <li><input type="checkbox" /> Suzuki <span>(4)</span></li>
                   </ul>
-                  <a href="/car-listings" className="see-more">See all Filters ⌄</a>
+                
                 </div>
+                  <hr className="horizontal_line"/>
+                  <Link to="/buy-cars" className="see-more">See all Filters ⌄</Link>
               </aside>
 
               {/* Car Listings */}
@@ -58,7 +62,7 @@ const CarListing = () => {
                     <h3 className="car-title">Toyota Hilux</h3>
                     <p className="rating"><FaStar className="star" /> 4.4 | 124 Reviews</p>
                     <p className="price">
-                      45K – 50K SSP <a href="/car-listings">*Get On-Road Price</a>
+                      45K – 50K SSP <a href="/buy-cars">*Get On-Road Price</a>
                     </p>
                     <p className="details">*Ex-Showroom Price {<br/>}• 12 km/l • 2755 cc • 7 Seater</p>
                     <button className="btn">View Details</button>

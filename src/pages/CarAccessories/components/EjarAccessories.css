@@ -21,7 +21,7 @@
 /* Heading */
 .acc__heading {
   font-size: 30px;          /* as requested */
-  font-weight: 700;
+  font-weight: 600;
   color: var(--acc-blue);   /* as requested */
   margin-bottom: 40px;
 }
