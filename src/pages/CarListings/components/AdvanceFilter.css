@@ -123,6 +123,17 @@ body {
   margin: 20px;
 }
 
+.view-all{
+  
+  font-size: 14px;
+  color: #007bff;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  margin: 20px;
+  margin-left: 60px;
+  font-weight: 400;
+}
 /* Car Listings */
 .car-listings {
   flex: 3;

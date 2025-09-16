@@ -552,3 +552,6 @@ function formatPriceRange(value) {
   }
   return `${value} SSP`;
 }
+
+
+
