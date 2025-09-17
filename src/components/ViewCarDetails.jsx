@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ViewDetails.css";
+import "./ViewCarDetails.css";
 
 export default function ViewDetails({ car, onClose }) {
   const [currentImage, setCurrentImage] = useState(0);

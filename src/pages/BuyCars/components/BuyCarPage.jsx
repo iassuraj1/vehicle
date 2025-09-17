@@ -1,76 +1,38 @@
+
 import React, { useMemo, useState } from "react";
-import Mercedes from "../../../assets/BuyCar/Mercedes.jpg"
-import toyota from "../../../assets/BuyCar/toyota.png"
+import toyota from "../../../assets/BuyCar/toyota.png";
 import { FaSearch } from "react-icons/fa";
 import "./BuyCarPage.css";
+import cars from "../../../data/data";
+// import { getCars } from "../../../services/carService"; // fetch cars from backend
+// import useCars from "../../../services/useCars";
 
-/**
- * Mock car dataset. Replace img fields with real URLs if you have thumbnails.
- * Prices are numeric (used for sorting). condition is "New" or "Old".
- */
-const CARS = [
-  {
-    id: 1,
-    name: "Toyota Hilux",
-    brand: "Toyota",
-    condition: "New",
-    type: "SUV", 
-    fuel: "Diesel",
-    rating: 4.4,
-    price: 48000,
-    img : toyota
-  },
-  {
-    id: 2,
-    name: "Mercedes-Benz GLE",
-    brand: "Mercedes-Benz",
-    condition: "New",
-    type: "SUV",
-    fuel: "Diesel",
-    rating: 4.1,
-    price: 130000,
-    img : Mercedes
-  },
-  {
-    id: 3,
-    name: "Toyota Fortuner",
-    brand: "Toyota",
-    condition: "Old",
-    type: "SUV",
-    fuel: "Petrol",
-    rating: 4.1,
-    price: 125000,
-    img: Mercedes
-  },
-  {
-    id: 4,
-    name: "Nissan Patrol",
-    brand: "Nissan",
-    condition: "New",
-    type: "SUV",
-    fuel: "Petrol",
-    rating: 4.2,
-    price: 90000,
-    img:  Mercedes
-  },
-  {
-    id: 5,
-    name: "Suzuki Swift",
-    brand: "Suzuki",
-    condition: "Old",
-    type: "Hatchback",
-    fuel: "Petrol",
-    rating: 3.9,
-    price: 15000,
-  },
-];
+import ViewDetails from "../../../components/ViewCarDetails"; // import your view car details component
+
+
+
+
+const CARS = cars.map((car, index) => ({
+  id: index + 1,
+  name: car.title,
+  brand: car.make,
+  condition: car.condition || "Used",
+  type: car.bodyType || "Sedan",
+  fuel: car.fuelType || "Petrol",
+  rating: 4.0,
+  price: car.price,
+  images: car.images && car.images.length > 0 ? car.images : [toyota], // array of images
+  model: car.model || "Unknown",
+  year: car.year || "2023",
+  kmDriven: car.kmDriven || 0,
+  city: car.city || "Unknown",
+  state: car.state || "Unknown",
+}));
 
 const uniqueValues = (arr, key) =>
   Array.from(new Set(arr.map((i) => i[key]))).sort();
 
-/** Small inline SVG used as placeholder "car image" */
 const CarSVG = ({ label = "Car", variant = 0 }) => {
-  // Several subtle gradients for visual variety
   const stops = [
     ["#e9f0fb", "#ffffff"],
     ["#f3f6f8", "#ffffff"],
@@ -79,12 +41,7 @@ const CarSVG = ({ label = "Car", variant = 0 }) => {
   ];
   const [c1, c2] = stops[variant % stops.length];
   return (
-    <svg
-      viewBox="0 0 800 400"
-      preserveAspectRatio="xMidYMid slice"
-      className="buycar-svg"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" className="buycar-svg" aria-hidden="true">
       <defs>
         <linearGradient id={`g${variant}`} x1="0" x2="1">
           <stop offset="0" stopColor={c1} />
@@ -93,15 +50,7 @@ const CarSVG = ({ label = "Car", variant = 0 }) => {
       </defs>
       <rect width="100%" height="100%" fill={`url(#g${variant})`} />
       <g transform="translate(16,34) scale(0.94)">
-        <rect
-          x="0"
-          y="10"
-          width="760"
-          height="220"
-          rx="8"
-          fill="#ffffff"
-          stroke="#d0d8e8"
-        />
+        <rect x="0" y="10" width="760" height="220" rx="8" fill="#ffffff" stroke="#d0d8e8" />
         <text x="24" y="72" fontSize="34" fill="#9fb8d6" fontWeight="700">
           {label}
         </text>
@@ -111,8 +60,7 @@ const CarSVG = ({ label = "Car", variant = 0 }) => {
 };
 
 export default function BuyCarPage() {
-  // UI state
-  const [condition, setCondition] = useState("New"); // New | Old
+  const [condition, setCondition] = useState("");
   const [expanded, setExpanded] = useState({
     budget: true,
     brand: true,
@@ -121,103 +69,83 @@ export default function BuyCarPage() {
     transmission: false,
     features: false,
   });
-  const [filters, setFilters] = useState({
-    brand: [], 
-    vehicle: [],
-    fuel: [], 
-  });
+  const [filters, setFilters] = useState({ brand: [], vehicle: [], fuel: [] });
   const [brandSearch, setBrandSearch] = useState("");
-  const [sortBy, setSortBy] = useState("featured"); // featured | low | high | rating
+  const [sortBy, setSortBy] = useState("featured");
 
-  // derive available filter items from dataset (counts reflect full dataset but in UI we show counts)
+  // New: popup state
+  const [selectedCar, setSelectedCar] = useState(null);
+
   const brands = useMemo(() => uniqueValues(CARS, "brand"), []);
   const vehicles = useMemo(() => uniqueValues(CARS, "type"), []);
   const fuels = useMemo(() => uniqueValues(CARS, "fuel"), []);
 
-  // toggle expand/collapse section
-  const toggleExpand = (key) =>
-    setExpanded((p) => ({ ...p, [key]: !p[key] }));
+  const toggleExpand = (key) => setExpanded((p) => ({ ...p, [key]: !p[key] }));
 
-  // toggle a checkbox filter
   const toggleFilter = (group, value) =>
     setFilters((p) => {
       const exists = p[group].includes(value);
-      return {
-        ...p,
-        [group]: exists ? p[group].filter((v) => v !== value) : [...p[group], value],
-      };
+      return { ...p, [group]: exists ? p[group].filter((v) => v !== value) : [...p[group], value] };
     });
 
-  // remove a filter chip (same as toggle)
   const removeChip = (group, val) => {
-    if (group === "condition") {
-      setCondition("New");
-      return;
-    }
+    if (group === "condition") { setCondition(""); return; }
     toggleFilter(group, val);
   };
 
-  // clear all filters and reset condition
   const clearAll = () => {
     setFilters({ brand: [], vehicle: [], fuel: [] });
-    setCondition("New");
+    setCondition("");
     setBrandSearch("");
     setSortBy("featured");
   };
 
-  // filtered + sorted cars
   const filteredCars = useMemo(() => {
-    let out = CARS.filter((c) => c.condition === condition);
-
+    let out = CARS;
+    if (condition) out = out.filter((c) => c.condition === condition);
     if (filters.brand.length) out = out.filter((c) => filters.brand.includes(c.brand));
     if (filters.vehicle.length) out = out.filter((c) => filters.vehicle.includes(c.type));
     if (filters.fuel.length) out = out.filter((c) => filters.fuel.includes(c.fuel));
 
-    // Sorting
     if (sortBy === "low") out = out.slice().sort((a, b) => a.price - b.price);
     else if (sortBy === "high") out = out.slice().sort((a, b) => b.price - a.price);
     else if (sortBy === "rating") out = out.slice().sort((a, b) => b.rating - a.rating);
-    // featured -> keep original order
 
-    return out;
+    const anyFilterApplied = filters.brand.length || filters.vehicle.length || filters.fuel.length || condition;
+    return anyFilterApplied ? out : out.slice(0, 3);
   }, [condition, filters, sortBy]);
 
-  // filtered brand list by search term (sidebar)
-  const visibleBrands = brands.filter((b) =>
-    b.toLowerCase().includes(brandSearch.trim().toLowerCase())
-  );
-
-  // chips representing active filters
-  const chips = [
-    { group: "condition", label: `${condition} Car` },
-    ...filters.brand.map((b) => ({ group: "brand", label: b })),
-    ...filters.vehicle.map((v) => ({ group: "vehicle", label: v })),
-    ...filters.fuel.map((f) => ({ group: "fuel", label: f })),
-  ];
+  const visibleBrands = brands.filter((b) => b.toLowerCase().includes(brandSearch.trim().toLowerCase()));
+  const chips = [...(condition ? [{ group: "condition", label: `${condition} Car` }] : []),
+                 ...filters.brand.map((b) => ({ group: "brand", label: b })),
+                 ...filters.vehicle.map((v) => ({ group: "vehicle", label: v })),
+                 ...filters.fuel.map((f) => ({ group: "fuel", label: f }))];
 
   return (
     <div className="buycar-page-wrap">
       <div className="buycar-wrap" role="main" aria-label="Buy Car page">
-        {/* Sidebar */}
-        <aside className="buycar-sidebar" aria-label="Filters">
-          <div className="buycar-section">
-            <div className="buycar-section-title">Condition</div>
+        {/* Sidebar code unchanged */}
+         <aside className="buycar-sidebar" aria-label="Filters">
+          {/* Condition */}
+        <div className="buycar-section">
+          <div className="buycar-section-title">Condition</div>
             <div className="buycar-condition-btns">
-              <button
+             <button
                 className={`buycar-pill ${condition === "New" ? "buycar-pill--active" : ""}`}
-                onClick={() => setCondition("New")}
+                onClick={() => setCondition(condition === "New" ? "" : "New")}
               >
                 NEW CAR
               </button>
               <button
                 className={`buycar-pill ${condition === "Old" ? "buycar-pill--active" : ""}`}
-                onClick={() => setCondition("Old")}
+                onClick={() => setCondition(condition === "Old" ? "" : "Old")}
               >
                 OLD CAR
               </button>
             </div>
           </div>
 
+          {/* Budget */}
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("budget")}>
               <span>Budget</span>
@@ -232,20 +160,20 @@ export default function BuyCarPage() {
                 </div>
                 <div className="buycar-checkbox-group" style={{ marginTop: 8 }}>
                   <label className="buycar-checkbox">
-                    <input type="checkbox"  /> 7.85L - 15.7L SSP (3)
+                    <input type="checkbox" /> 7.85L - 15.7L SSP (3)
                   </label>
                   <label className="buycar-checkbox">
                     <input type="checkbox" /> 15.7L - 23.5L SSP (4)
                   </label>
                   <label className="buycar-checkbox">
-                    <input type="checkbox"  /> 23.5L - 31.4L SSP (6)
+                    <input type="checkbox" /> 23.5L - 31.4L SSP (6)
                   </label>
                 </div>
               </div>
             )}
           </div>
 
-          {/* BRAND */}
+          {/* Brand */}
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("brand")}>
               <span>Brand</span>
@@ -265,8 +193,7 @@ export default function BuyCarPage() {
                     onClick={() => setBrandSearch("")}
                     className="buycar-brand-clear"
                   >
-                    <FaSearch  />
-                    
+                    <FaSearch />
                   </button>
                 </div>
 
@@ -279,7 +206,10 @@ export default function BuyCarPage() {
                         onChange={() => toggleFilter("brand", b)}
                       />
                       <span style={{ marginLeft: 8 }}>
-                        {b} <small style={{ color: "#6b7b8c" }}>({CARS.filter(c => c.brand===b).length})</small>
+                        {b}{" "}
+                        <small style={{ color: "#6b7b8c" }}>
+                          ({CARS.filter((c) => c.brand === b).length})
+                        </small>
                       </span>
                     </label>
                   ))}
@@ -289,7 +219,7 @@ export default function BuyCarPage() {
             )}
           </div>
 
-          {/* VEHICLE TYPE */}
+          {/* Vehicle Type */}
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("vehicle")}>
               <span>Vehicle Type</span>
@@ -305,7 +235,7 @@ export default function BuyCarPage() {
                       onChange={() => toggleFilter("vehicle", v)}
                     />
                     <span style={{ marginLeft: 8 }}>
-                      {v} <small style={{ color: "#6b7b8c" }}>({CARS.filter(c => c.type===v).length})</small>
+                      {v} <small style={{ color: "#6b7b8c" }}>({CARS.filter((c) => c.type === v).length})</small>
                     </span>
                   </label>
                 ))}
@@ -313,7 +243,7 @@ export default function BuyCarPage() {
             )}
           </div>
 
-          {/* FUEL */}
+          {/* Fuel */}
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("fuel")}>
               <span>Fuel Type</span>
@@ -329,7 +259,7 @@ export default function BuyCarPage() {
                       onChange={() => toggleFilter("fuel", f)}
                     />
                     <span style={{ marginLeft: 8 }}>
-                      {f} <small style={{ color: "#6b7b8c" }}>({CARS.filter(c => c.fuel===f).length})</small>
+                      {f} <small style={{ color: "#6b7b8c" }}>({CARS.filter((c) => c.fuel === f).length})</small>
                     </span>
                   </label>
                 ))}
@@ -337,15 +267,19 @@ export default function BuyCarPage() {
             )}
           </div>
 
-         {/* Transmission */}
+          {/* The rest of filters (Transmission, Features, Mileage, Seats, Airbags, Cylinders, Wheel Drive) */}
+          {/* Keep your original code here exactly the same */}
+          {/* ... */}
+
+             {/* Transmission */}
             <div className="buycar-filter">
-                <h4 onClick={() => toggleExpand("transmission")}>
-                    <span>Transmission</span>
-                    <span className="buycar-toggle-icon">
-                    {expanded.transmission ? "–" : "+"}
-                    </span>
-                </h4>
-                {expanded.transmission && (
+               <h4 onClick={() => toggleExpand("transmission")}>
+                     <span>Transmission</span>
+                     <span className="buycar-toggle-icon">
+                     {expanded.transmission ? "–" : "+"}
+                     </span>
+                 </h4>
+                 {expanded.transmission && (
                     <div className="buycar-checkbox-group">
                     <label><input type="checkbox" /> Automatic</label>
                     <label><input type="checkbox" /> Manual</label>
@@ -453,41 +387,30 @@ export default function BuyCarPage() {
             </div>
         </aside>
 
+
         {/* Content */}
         <section className="buycar-content">
           <div className="buycar-results-header" aria-live="polite">
             <div className="buycar-results-left">
               <h2 className="buycar-results-title">Search Results</h2>
-
               <div className="buycar-chips">
                 {chips.map((c, idx) => (
                   <button
                     key={`${c.group}-${c.label}-${idx}`}
                     className="buycar-chip"
-                    onClick={() =>
-                      c.group === "condition"
-                        ? removeChip("condition")
-                        : removeChip(c.group, c.label)
-                    }
+                    onClick={() => c.group === "condition" ? removeChip("condition") : removeChip(c.group, c.label)}
                     title={`Remove ${c.label}`}
                   >
                     {c.label} <span className="buycar-chip-x">X</span>
                   </button>
                 ))}
-                <button className="buycar-chip buycar-chip-clear" onClick={clearAll}>
-                  Clear All Filters
-                </button>
+                <button className="buycar-chip buycar-chip-clear" onClick={clearAll}>Clear All Filters</button>
               </div>
             </div>
 
             <div className="buycar-sort-wrap">
               <label htmlFor="sort" className="buycar-sort-label">Sort By</label>
-              <select
-                id="sort"
-                className="buycar-select"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
+              <select id="sort" className="buycar-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                 <option value="featured">Featured</option>
                 <option value="low">Price: Low to High</option>
                 <option value="high">Price: High to Low</option>
@@ -500,58 +423,42 @@ export default function BuyCarPage() {
             {filteredCars.map((car, i) => (
               <article className="buycar-card" key={car.id} aria-label={car.name}>
                 <div className="buycar-card-img">
-                    {car.img ? (
-                        <img src={car.img} alt={car.name} className="buycar-img" />
-                    ) : (
-                        <CarSVG label={car.name} variant={i} />
-                    )}
+                  {car.images[0] ? <img src={car.images[0]} alt={car.name} className="buycar-img" /> : <CarSVG label={car.name} variant={i} />}
                 </div>
-
                 <div className="buycar-card-body">
-                  <div >
+                  <div>
                     <h3 className="buycar-card-title">{car.name}</h3>
-                    <div className="buycar-rating"> {car.rating} ★ | {Math.round(car.rating * 40)} Reviews</div>
+                    <div className="buycar-rating">{car.rating} ★ | {Math.round(car.rating*40)} Reviews</div>
                   </div>
-
-                  <div className="buycar-price">
-                    {formatPriceRange(car.price)}  <span className="on_road">* Get on-road Price</span> <small className="ex-showroom">*Ex-Showroom Price</small>
-                  </div>
-
-                  <div className="buycar-meta">
-                    <div>12 km/l</div>
-                    <div>2,755 cc</div>
-                    <div>7 Seater</div>
-                  </div>
-
+                  <div className="buycar-price">{formatPriceRange(car.price)} <span className="on_road">* Get on-road Price</span> <small className="ex-showroom">*Ex-Showroom Price</small></div>
+                  <div className="buycar-meta"><div>12 km/l</div><div>2,755 cc</div><div>7 Seater</div></div>
                   <div className="buycar-cta">
-                    <button className="buycar-btn-primary">VIEW DETAILS</button>
-                    {/* <div className="buycar-price-badge">{Math.round(car.rating * 40)} Reviews</div> */}
+                    <button className="buycar-btn-primary" onClick={() => setSelectedCar(car)}>VIEW DETAILS</button>
                   </div>
                 </div>
               </article>
             ))}
-
-            {filteredCars.length === 0 && (
-              <div className="buycar-empty">No cars match your filters.</div>
-            )}
+            {filteredCars.length === 0 && <div className="buycar-empty">No cars match your filters.</div>}
           </div>
         </section>
       </div>
+
+      {/* View Details Popup */}
+      {selectedCar && <ViewDetails car={selectedCar} onClose={() => setSelectedCar(null)} />}
     </div>
   );
 }
 
-/* small helper to show price range like "45K - 50K SSP" based on number */
 function formatPriceRange(value) {
-  // For mock: show value near 'value' or 'value-5%'
-  const low = Math.round(value * 0.95 / 1000) * 1; // in thousands simplification
+  const low = Math.round(value * 0.95 / 1000) * 1;
   const high = Math.round(value * 1.05 / 1000) * 1;
-  // convert to K if appropriate
-  if (value >= 1000) {
-    return `${Math.round(low)}K - ${Math.round(high)}K SSP`;
-  }
-  return `${value} SSP`;
+  return value >= 1000 ? `${Math.round(low)}K - ${Math.round(high)}K SSP` : `${value} SSP`;
 }
 
+console.log("buyCars.jsx")
+// console.log(getCars)
+
+console.log(cars)
+// console.log(useCars)
 
 

@@ -8,7 +8,7 @@ const SellCarForm = () => {
     <div className="form-container">
       <h2>Sell your Car</h2>
       <form className="car-form">
-        <div className="form-row">
+        <div className="sell-form-row">
           <div className="custom-select">
             <select>
               <option>Make</option>
@@ -30,7 +30,7 @@ const SellCarForm = () => {
           </div>
         </div>
 
-        <div className="form-row">
+        <div className="sell-form-row">
           <div className="custom-select">
             <select>
               <option>Year of Manufacture</option>
@@ -51,7 +51,7 @@ const SellCarForm = () => {
           </div>
         </div>
 
-        <div className="form-row">
+        <div className="sell-form-row">
           <div className="custom-select">
             <select>
               <option>Fuel Type</option>

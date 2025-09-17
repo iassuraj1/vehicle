@@ -7,6 +7,8 @@ import "./MainHeader.css";
 import Login from "../../pages/Login";
 import Signup from "../../pages/Signup";
 import { logoutUser } from "../../services/authService";
+import ContactForm from "../ContactPage";
+
 
 export default function MainHeader() {
   const [language, setLanguage] = useState("English");
@@ -14,6 +16,7 @@ export default function MainHeader() {
   const [showMenu, setShowMenu] = useState(false);
   const [registerOption, setRegisterOption] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const dropdownRef = useRef();
 
@@ -67,8 +70,8 @@ export default function MainHeader() {
           <option>Arabic</option>
         </select>
 
-        <button className="contact-btn">CONTACT US</button>
-
+        <button className="contact-btn" onClick={() => setIsContactOpen(true)}>CONTACT US</button>
+        <ContactForm isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         {isLoggedIn ? (
           <button className="logout-btn" onClick={handleLogout}>
             Logout

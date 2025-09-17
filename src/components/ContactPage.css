@@ -1,0 +1,113 @@
+/* Overlay */
+.contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: sans-serif;
+}
+
+/* Modal Box */
+.contact-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  background-color: #377CDB;
+}
+
+/* Heading */
+.contact-modal h2 {
+  margin-bottom: 0.5rem;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+.contact-modal p {
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Form */
+.contact-form .input_email .input_contact,
+.contact-form select{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 23px;
+  outline: none;
+  transition: border 0.2s;
+  color: #6e6e6e;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+ ;
+}
+
+/* Two-column Row */
+.form-row {
+  display: flex;
+  gap: 10px;
+  font-size: 23px;
+}
+
+.form-row .first-name .last-name {
+  flex: 1;
+ 
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #377CDB;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.first-name , .last-name{
+    width: 50%;
+}
