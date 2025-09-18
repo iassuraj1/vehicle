@@ -1,26 +1,5 @@
-// import "./Navbar.css";
-// import { NavLink } from "react-router-dom";
 
-// export default function Navbar() {
-//   return (
-//     <nav>
-//       <div className="nav-links">
-//         <NavLink to="/sell-cars">Sell cars</NavLink>
-//         <NavLink to="/buy-cars">Buy cars</NavLink>
-//         <NavLink to="/car-listings">Car Listings</NavLink>
-//         <NavLink to="/car-details">Car Details</NavLink>
-//         <NavLink to="/car-accessories">Car Accessories</NavLink>
-     
 
-//         <select id="mode_types">
-//           <option value="ssp">SSP</option>
-//           <option value="msp">MSP</option>
-//         </select>
-
-//        </div>
-//     </nav>
-//   );
-// } 
 
 
 import "./Navbar.css";
@@ -51,12 +30,12 @@ export default function Navbar() {
           Car Listings
         </NavLink>
 
-        <NavLink 
+        {/* <NavLink 
           to="/car-details" 
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Car Details
-        </NavLink>
+        </NavLink> */}
 
         <NavLink 
           to="/car-accessories" 
@@ -67,7 +46,7 @@ export default function Navbar() {
 
         <select id="mode_types">
           <option value="ssp">SSP</option>
-          <option value="msp">MSP</option>
+          <option value="usd">USD</option>
         </select>
       </div>
     </nav>

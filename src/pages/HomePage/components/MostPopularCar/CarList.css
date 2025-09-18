@@ -1,11 +1,18 @@
 .car-list {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; 
   gap: 1.25rem; /* gap-5 */
+}
+
+@media (min-width: 640px) {
+  .car-list {
+    grid-template-columns: repeat(2, 1fr); /* Small devices: 2 columns */
+  }
 }
 
 @media (min-width: 768px) {
   .car-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Tablet and up: 3 columns */
   }
 }

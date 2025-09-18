@@ -1,12 +1,11 @@
 /* Top-level layout */
 .buycar-page-wrap {
-    margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  /* background: #f3f6f9; */
-  min-height: 100vh;
   padding: 28px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   color: #16324f;
   -webkit-font-smoothing: antialiased;
 }
@@ -25,10 +24,11 @@
   background: #fff;
   border: 1px solid #294872;
   border-radius: 8px;
-
-  box-shadow: 0 6px 18px rgba(32,40,60,0.04);
+  box-shadow: 0 6px 18px rgba(32, 40, 60, 0.04);
 }
-.buycar-section{
+
+.buycar-section,
+.buycar-filter {
   padding: 20px;
 }
 
@@ -45,9 +45,9 @@
 }
 
 .buycar-pill {
-  border: 1px solid #377CDB;
+  border: 1px solid #377cdb;
   background: #fff;
-  color: #377CDB;
+  color: #377cdb;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 600;
@@ -55,19 +55,16 @@
   font-size: 17px;
 }
 
-/* active selected pill (filled) */
 .buycar-pill--active {
-  background: #377CDB;
+  background: #377cdb;
   color: #fff;
-  box-shadow: 0 6px 12px rgba(47,128,237,0.08);
+  box-shadow: 0 6px 12px rgba(47, 128, 237, 0.08);
 }
 
-/* filter section */
 .buycar-filter {
   border-top: 1px solid #294872;
   padding-top: 12px;
   margin-top: 12px;
-  padding: 20px;
 }
 
 .buycar-filter h4 {
@@ -81,61 +78,60 @@
   cursor: pointer;
 }
 
-.buycar-expand-icon {
-  font-size: 18px;
-  color: #6b7b8c;
-  padding-right: 20px;
+.buycar-toggle-icon {
+  font-size: 22px;
+  font-weight: 700;
 }
 
-/* brand search box inside sidebar */
+/* Brand search */
 .buycar-brand-search {
+  width: 100%;
   display: flex;
- 
-  margin-top: 10px;
   align-items: center;
+  position: relative;
+  margin-top: 10px;
 }
+
 .buycar-brand-search input {
   flex: 1;
-  padding: 8px 10px;
+  padding: 8px 40px 8px 10px;
   border: 1px solid #d1dbe8;
   border-radius: 6px;
   font-size: 17px;
 }
+
 .buycar-brand-clear {
   position: absolute;
+  right: 1px;
   background: transparent;
   border: none;
-  left: 390px;
-  /* border: 1px solid #d1dbe8; */
-  padding: 8px 10px;
-  /* border-radius: 6px; */
-  font-size: 15px;
+  font-size: 18px;
   cursor: pointer;
-  color :#6B7A90
-  
-  
-  
-
+  color: #6b7a90;
 }
 
-
-/* checkbox group appearance */
+/* Checkboxes */
 .buycar-checkbox-group {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #405a75;
 }
+
 .buycar-checkbox {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.buycar-muted { color: #6b7b8c; font-size: 13px; }
 
-/* CONTENT AREA */
+.buycar-muted {
+  color: #6b7b8c;
+  font-size: 13px;
+}
+
+/* Content Area */
 .buycar-content {
   flex: 1;
   min-width: 700px;
@@ -146,12 +142,15 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 14px;
+  flex-wrap: wrap;
 }
+
 .buycar-results-left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .buycar-results-title {
   margin: 0;
   font-size: 30px;
@@ -159,15 +158,15 @@
   font-weight: 600;
 }
 
-/* chips */
 .buycar-chips {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
+
 .buycar-chip {
   display: inline-flex;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
   background: #fff;
   border: 1px solid #294872;
@@ -176,14 +175,9 @@
   font-weight: 600;
   color: #555;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 15px;
 }
-.buycar-chip .buycar-chip-x {
-   color: #6b7b8c;
-    margin-left: 6px;
-    font-weight: 700; }
 
-/* clear chip slightly different */
 .buycar-chip-clear {
   background: transparent;
   border-style: dashed;
@@ -191,17 +185,14 @@
   border: 1px solid #294872;
 }
 
-/* sort/select */
 .buycar-sort-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 17px;
+  flex-wrap: wrap;
 }
-.buycar-sort-label { 
-    color: #6b7b8c;
-     font-weight: 700; 
-     font-size: 17px; }
+
 .buycar-select {
   padding: 8px 10px;
   border-radius: 8px;
@@ -210,8 +201,11 @@
   font-size: 17px;
 }
 
-/* list & card */
-.buycar-list { margin-top: 12px; }
+/* Cards */
+.buycar-list {
+  margin-top: 12px;
+}
+
 .buycar-card {
   display: flex;
   gap: 20px;
@@ -219,14 +213,14 @@
   background: #fff;
   border: 1px solid #294872;
   border-radius: 10px;
-
   margin-bottom: 18px;
-  box-shadow: 0 6px 18px rgba(32,40,60,0.04);
+  box-shadow: 0 6px 18px rgba(32, 40, 60, 0.04);
+  padding: 10px;
 }
 
 .buycar-card-img {
   width: 50%;
-  height: 250px; /* adjust based on your design */
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,82 +229,174 @@
   background: #f5f5f5;
 }
 
-.buycar-card-img img.buycar-img {
+.buycar-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ensures image fills without distortion */
+  object-fit: cover;
 }
+
 .buycar-card-body {
   flex: 1;
   padding-right: 10px;
 }
 
-/* title + rating */
 .buycar-card-title {
   margin: 0;
-  font-size: 30px;
+  font-size: 28px;
   color: #294872;
   font-weight: 600;
 }
-.buycar-rating { color: #f5b800; font-weight: 700; font-size: 13px; margin-left: 6px; }
 
-/* price, meta, cta */
-.buycar-price {
-     color: #294872;
-      font-weight: 600; 
-      margin-top: 8px;
-       font-size: 30px; 
-    }
-.on_road{
-    font-size: 18px;
-    color: #377CDB;
-}    
-
-.ex-showroom{
-    font-size: 17px;
+.buycar-rating {
+  color: #f5b800;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
-.buycar-price small { 
-    display: block; 
-    font-size: 12px; 
-    color: #6b7b8c; 
-    font-weight: 600;
-     margin-top: 4px; }
+.buycar-price {
+  color: #294872;
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 26px;
+}
 
-.buycar-meta { 
-    margin-top: 10px;
-     color: #6b7b8c;
-      font-size: 14px; 
-      display: flex; 
-      gap: 16px; 
-      flex-wrap: wrap; }
+.on_road {
+  font-size: 16px;
+  color: #377cdb;
+}
 
-.buycar-cta { margin-top: 12px; display:flex; gap:12px; align-items:center; }
+.ex-showroom {
+  font-size: 14px;
+}
+
+.buycar-meta {
+  margin-top: 10px;
+  color: #6b7b8c;
+  font-size: 14px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.buycar-cta {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .buycar-btn-primary {
   background: #2f80ed;
   color: #fff;
-  padding: 6px 50px;
+  padding: 10px 24px;
   border-radius: 8px;
-  border: 0;
+  border: none;
   font-weight: 600;
   cursor: pointer;
-  font-size: 23px;
+  font-size: 20px;
 }
-.buycar-price-badge { margin-left: auto; font-size: 12px; color: #6b7b8c; }
 
-/* empty message */
-.buycar-empty { padding: 24px; color: #6b7b8c; }
+.buycar-empty {
+  padding: 24px;
+  color: #6b7b8c;
+  font-size: 18px;
+  text-align: center;
+}
 
-/* small screens */
+/* Budget legend */
+.buycar-range-legend {
+  font-size: 14px;
+}
+
+/* ---------------------- */
+/* ✅ Responsive Breakpoints */
+/* ---------------------- */
+
 @media (max-width: 980px) {
-  .buycar-wrap { flex-direction: column; gap: 20px; }
-  .buycar-sidebar { width: 100%; order: 2; }
-  .buycar-content { order: 1; min-width: 0; }
-  .buycar-card { flex-direction: column; }
-  .buycar-card-img { width: 100%; flex: 0 0 auto; height: 220px; }
+  .buycar-wrap {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .buycar-sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .buycar-content {
+    order: 1;
+    min-width: 0;
+  }
+
+  .buycar-card {
+    flex-direction: column;
+  }
+
+  .buycar-card-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .buycar-results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
+@media (max-width: 600px) {
+  .buycar-page-wrap {
+    padding: 20px;
+  }
+  .buycar-section-title,
+  .buycar-filter h4,
+  .buycar-results-title {
+    font-size: 22px;
+  }
 
-.buycar-range-legend{
+  .buycar-pill {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  .buycar-chip {
     font-size: 14px;
+    gap: 6px;
+  }
+
+  .buycar-price {
+    font-size: 22px;
+  }
+
+  .buycar-card-title {
+    font-size: 20px;
+  }
+
+  .on_road,
+  .ex-showroom {
+    font-size: 13px;
+  }
+
+  .buycar-btn-primary {
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .buycar-meta {
+    font-size: 13px;
+  }
+
+  .buycar-range-legend {
+    font-size: 13px;
+  }
+  
+.buycar-brand-search input {
+  width: 100%;;
+  /* padding: 8px 40px 8px 10px; */
+  border: 1px solid #d1dbe8;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
 }

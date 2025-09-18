@@ -107,8 +107,9 @@ export default function MainHeader() {
             <option>English</option>
             <option>Arabic</option>
           </select>
-
-          <button className="contact-btn">CONTACT US</button>
+          
+         <button className="contact-btn" onClick={() => setIsContactOpen(true)}>CONTACT US</button>
+        <ContactForm isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
 
           {isLoggedIn ? (
             <button className="logout-btn" onClick={handleLogout}>

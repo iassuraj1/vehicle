@@ -1,17 +1,17 @@
-:root{
-  --blue:#377CDB;
-  --deep:#294872;
-  --border:#DFE6EE;
-  --muted:#6B7A90;
+:root {
+  --blue: #377cdb;
+  --deep: #294872;
+  --border: #dfe6ee;
+  --muted: #6b7a90;
   /* --muted:#ff0000; */
-  --bg:#F4F6FA;
+  --bg: #f4f6fa;
 }
 
-.form-box{
+.form-box {
   max-width: 1100px;
   margin: -50px auto;
   display: grid;
-  grid-template-columns: 2fr 1fr; 
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
   background: #fff;
   padding: 10px 20px;
@@ -20,45 +20,44 @@
   align-items: start;
 }
 
-.serach-box h1{
+.serach-box h1 {
   margin: 0 0 16px 0;
-  color: var(--deep); 
+  color: var(--deep);
   font-size: 30px;
   font-weight: 600;
 }
 
-.search_cars{
+.search_cars {
+  width: 100%;
   display: flex;
-
   gap: 14px;
   margin-bottom: 16px;
-
 }
-.search_cars .search_car_placeholder{
-  padding: 0;
-  margin: 0;
-  width: 550px;
+.search_cars .search_car_placeholder {
+  width: 100%;
   border: 1px solid var(--deep);
   border-radius: 5px;
 }
-.serach_cars p{
+
+.serach_cars p {
   border: 1px solid var(--deep);
 }
 
-.search_cars .serach-icon{
+.search_cars .serach-icon {
   position: relative;
-  left: 270px;
-  top: 5px;
+  left: 95%;
+  top: -15px;
   font-size: 20px;
-  color: #6B7A90;
+  color: #6b7a90;
 }
 
 .search_cars input,
 .model_option input[type="date"],
 .search_cars select,
-.model_option select{
-  height: 44px;
-  padding: 0 14px ;
+.model_option select {
+  width: 100%;
+  /* height: 44px; */
+  padding: 2px 14px;
   border: none;
   border-radius: 8px;
   background: #fff;
@@ -70,37 +69,34 @@
 .search_cars input:focus,
 .model_option input[type="date"]:focus,
 .search_cars select:focus,
-.model_option select:focus{
+.model_option select:focus {
   border-color: var(--blue);
   color: black;
   /* box-shadow: 0 0 0 3px rgba(55,124,219,.15); */
 }
 
- #make_box  {
-   appearance: none;      /* removes default arrow */
+#make_box {
+  appearance: none; /* removes default arrow */
   -webkit-appearance: none;
   -moz-appearance: none;
-    width: 200px
-     
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- #model_box  {
-   appearance: none;      /* removes default arrow */
+#model_box {
+  width: 100%;
+  appearance: none; /* removes default arrow */
   -webkit-appearance: none;
-  width: 200px
 }
 
-.model_option p{
+.model_option p {
   border: 1px solid var(--deep);
   border-radius: 5px;
- 
 }
-/* 
-.calander_input::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-} */
 
-.calander_icon{
+
+.calander_icon {
   width: 80px;
   color: var(--deep);
 }
@@ -120,34 +116,92 @@
   border: 1px solid var(--blue);
   border-radius: 6px;
   cursor: pointer;
-} 
-.dropdown-icon{
+}
+.dropdown-icon {
   position: absolute;
-  left: 59vw;
-  margin-top: 12px;
+  left: -50px;
+  /* bottom: -50px; */
   color: white;
-
 }
 
-.model_option #box_dropdown{
+.model_option #box_dropdown {
   color: var(--deep);
 }
 
-
-
-.model_option{
+.model_option {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  
 }
-.slider{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+/* Wrapper for select + custom arrow */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.single-slider{
+.select-wrapper select {
+  width: 100%;
+  padding: 10px 40px 10px 14px; /* extra space for icon on right */
+  border: 1px solid var(--deep);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--muted);
+  background: #fff;
+  appearance: none; /* remove native arrow */
+  cursor: pointer;
+  height: 44px;
+  box-sizing: border-box;
+}
+
+/* Custom dropdown icon */
+.select-wrapper .dropdown-icon {
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--deep);
+  pointer-events: none; /* click pass through */
+}
+
+/* Calendar alignment */
+.calendar_paragraph {
+  position: relative;
+  width: 100%;
+}
+
+.calendar_input {
+  width: 100%;
+  padding: 10px 40px 10px 14px; /* padding-right for calendar icon */
+  border: 1px solid var(--deep);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--muted);
+  background: #fff;
+  height: 44px;
+  box-sizing: border-box;
+}
+
+.calendar_icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--deep);
+  pointer-events: none;
+   border: 1px solid var(--deep);
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-slider {
   width: 500px;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -156,101 +210,104 @@
   border-radius: 10px;
   border: 1px solid var(--border);
 }
-.advance_search{
+.advance_search {
   margin-left: 10px;
   font-size: 20px;
   border: none;
   background-color: transparent;
   padding: 0;
 }
-.advance_search:hover{
-  color: #377CDB;
+.advance_search:hover {
+  color: #377cdb;
 }
-.play_button{
+.play_button {
   color: var(--deep);
   margin-top: 30px;
   margin-left: 5px;
 }
-.play_button:hover{
-  color: #377CDB;
+.play_button:hover {
+  color: #377cdb;
 }
 
-.budget{
-  display: inline-block;
+.budget {
+  display: flex;
   margin-bottom: 8px;
-  color: #47566B;
+  color: #47566b;
   font-size: 14px;
   font-weight: 600;
 }
-#budget_heading{
+#budget_heading {
   color: var(--muted);
   font-size: 22px;
   padding: 0px 0px 10px 5px;
   margin: 0px;
-  
 }
 
-#budget{
+#budget {
   width: 100%;
   accent-color: var(--deep);
   -webkit-appearance: none;
   height: 4px;
-  background: #C9D3E2;
+  background: #c9d3e2;
   border-radius: 100px;
   outline: none;
   color: var(--muted);
 }
-#budget::-webkit-slider-thumb{
+#budget::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 16px; height: 16px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: #fff;
   border: 3px solid var(--deep);
-  box-shadow: 0 0 0 3px rgba(41,72,114,.15);
+  box-shadow: 0 0 0 3px rgba(41, 72, 114, 0.15);
   cursor: pointer;
 }
-#budget::-moz-range-thumb{
-  width: 16px; height: 16px; border-radius: 50%;
-  background: #fff; border: 3px solid var(--deep);
-  box-shadow: 0 0 0 3px rgba(41,72,114,.15);
+#budget::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--deep);
+  box-shadow: 0 0 0 3px rgba(41, 72, 114, 0.15);
   cursor: pointer;
 }
 
-.sell_car_icon{
+.sell_car_icon {
   padding: 0px;
   border-left: 1px solid var(--border);
   border-radius: 0 12px 12px 0;
   background: #fff;
 }
 
-.sell_car_icon h1{
+.sell_car_icon h1 {
   /* content: "Sell your Car"; */
   display: block;
   color: var(--deep);
   font-weight: 600;
   font-size: 30px;
   margin-bottom: 12px;
-  padding-left:30px ;
+  padding-left: 30px;
   padding-bottom: 10px;
   margin-top: 0px;
 }
 
-.sell_car_icon > div{
+.sell_car_icon > div {
   margin: 0px;
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   /* gap: 18px 24px !important; */
   text-align: center;
 }
 
-.sell_car_icon p{
+.sell_car_icon p {
   margin: 8px 0 0;
   font-size: 12px;
   line-height: 1.3;
   color: var(--muted);
 }
 
-.sell_car_grid{
+.sell_car_grid {
   width: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -262,11 +319,14 @@
   align-self: center;
   margin-left: 20px !important;
 }
-.sell_car_grid div{
+.sell_car_grid div {
   padding-left: 0px;
 }
+.sell_car_grid div > p {
+  font-size: 16px;
+}
 
-.sell_btn{
+.sell_btn {
   margin-top: 14px;
   margin-left: 25px;
   width: 90%;
@@ -276,33 +336,54 @@
   background: var(--blue);
   color: #fff;
   font-weight: 800;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(55,124,219,.25);
+  box-shadow: 0 4px 10px rgba(55, 124, 219, 0.25);
 }
 
-@media (max-width: 1024px){
-  .form-box{ grid-template-columns: 1fr; }
-  .sell_car_icon{ border-left: 0; border-top: 1px solid var(--border); border-radius: 12px; }
-  .search_cars{ grid-template-columns: 1fr; }
-  #car_type{ width: 100%; }
-  .model_option{ grid-template-columns: 1fr 1fr; }
+@media (max-width: 1024px) {
+  .form-box {
+    grid-template-columns: 1fr;
+    margin: 0px;
+  }
+  .sell_car_icon {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .search_cars {
+    grid-template-columns: 1fr;
+  }
+  #car_type {
+    width: 100%;
+  }
+  .model_option {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-@media (max-width: 640px){
-  .model_option{ grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .search_cars .search_car_placeholder {
+    width: 100%;
+  }
+  .dropdown-icon {
+    display: none;
+  }
+  .model_option {
+    grid-template-columns: 1fr;
+  }
 }
-
-
-
-
-
+.model_option #box_dropdown {
+  display: none;
+}
 
 .calendar_paragraph {
   position: relative;
   display: flex;
   align-items: center;
-  width: 200px; /* adjust as needed */
+  width: 200px;
+  border-radius: 10px;
+   border: 1px solid var(--deep);
 }
 
 .calendar_input {
@@ -315,7 +396,7 @@
   color: var(--muted);
   background: #fff;
   outline: none;
-  
+
   /* hide the native picker icon but keep input clickable */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -323,20 +404,216 @@
 }
 
 .calendar_input::-webkit-calendar-picker-indicator {
-  opacity: 0;         /* hide default icon */
-  cursor: pointer;    /* still clickable */
-  position: absolute; 
+  opacity: 0; /* hide default icon */
+  cursor: pointer; /* still clickable */
+  position: absolute;
   right: 0;
-  width: 100%;        /* make sure the field is clickable */
+  width: 100%; /* make sure the field is clickable */
   height: 100%;
 }
 
 .calendar_icon {
+  border: 1px solid rgb(75, 32, 32);
   position: absolute;
   right: 12px;
   font-size: 20px;
   color: var(--deep);
   pointer-events: none; /* ensures clicks go to input, not the icon */
+}
+
+/* Tablet View - Adjust form layout and inputs */
+@media (max-width: 1024px) {
+  .form-box {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .sell_car_icon {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    border-radius: 12px;
+    padding-top: 20px;
+  }
+
+  .search_cars {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #car_type {
+    width: 100%;
+  }
+
+  .model_option {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .single-slider {
+    width: 100%;
+  }
+
+  .sell_car_grid {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 0 !important;
+  }
+
+  .dropdown-icon {
+    left: auto;
+    right: 12px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search_cars {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search_cars .search_car_placeholder {
+    width: 100%;
+  }
+
+  .model_option {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown-icon {
+    display: none;
+  }
+
+  .sell_car_grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .sell_btn {
+    margin: 14px auto 0 auto;
+    width: 100%;
+  }
+
+  .sell_car_icon h1 {
+    font-size: 22px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .calendar_paragraph {
+    width: 100%;
+  }
+
+  .calendar_input {
+    width: 100%;
+    /* padding-right: 40px; */
+  }
+
+  .calendar_icon {
+    width: 100%;
+    /* right: -120px; */
+    display: none;
+  }
+
+  .advance_search {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .serach-box h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .single-slider {
+    width: 100%;
+  }
+
+  .play_button {
+    margin-top: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .form-box {
+    padding: 16px 12px;
+    margin: 0 auto;
+  }
+
+  .search_cars input,
+  .search_cars select,
+  .model_option select,
+  .model_option input,
+  .calendar_input,
+  #car_type {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 10px ;
+    
+  }
+
+  .model_option {
+    grid-template-columns: 1fr;
+  }
+
+  .search_car_placeholder {
+    width: 100% !important;
+
+  }
+
+  .search_cars .serach-icon {
+    left: 90%;
+    right: 0;
+    top: -20px;
+  }
+
+  .search_cars input,
+  .model_option input[type="date"],
+  .search_cars select,
+  .model_option select {
+    height: 35px;
+    padding: auto;
+    margin: 0px;
+  }
+  .model_option p{
+    margin: 0px;
+  }
+}
+
+/* Wrapper for search input with icon */
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 10px 14px 10px 44px; /* Left padding for icon space */
+  border: 1px solid var(--deep);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--muted);
+  background: #fff;
+  outline: none;
+  height: 44px;
+}
+
+.search-input-wrapper input:focus {
+  border-color: var(--blue);
+  color: black;
+}
+
+.search-input-wrapper .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #6b7a90;
+  pointer-events: none;
 }
 
 

@@ -3,31 +3,14 @@ import React, { useMemo, useState } from "react";
 import toyota from "../../../assets/BuyCar/toyota.png";
 import { FaSearch } from "react-icons/fa";
 import "./BuyCarPage.css";
-import cars from "../../../data/data";
 // import { getCars } from "../../../services/carService"; // fetch cars from backend
-// import useCars from "../../../services/useCars";
+import useCars from "../../../services/useCars";
 
 import ViewDetails from "../../../components/ViewCarDetails"; // import your view car details component
 
 
 
 
-const CARS = cars.map((car, index) => ({
-  id: index + 1,
-  name: car.title,
-  brand: car.make,
-  condition: car.condition || "Used",
-  type: car.bodyType || "Sedan",
-  fuel: car.fuelType || "Petrol",
-  rating: 4.0,
-  price: car.price,
-  images: car.images && car.images.length > 0 ? car.images : [toyota], // array of images
-  model: car.model || "Unknown",
-  year: car.year || "2023",
-  kmDriven: car.kmDriven || 0,
-  city: car.city || "Unknown",
-  state: car.state || "Unknown",
-}));
 
 const uniqueValues = (arr, key) =>
   Array.from(new Set(arr.map((i) => i[key]))).sort();
@@ -60,6 +43,11 @@ const CarSVG = ({ label = "Car", variant = 0 }) => {
 };
 
 export default function BuyCarPage() {
+  const {cars, loading,error}= useCars()
+  // const updatedCars = myCars[0]
+
+
+
   const [condition, setCondition] = useState("");
   const [expanded, setExpanded] = useState({
     budget: true,
@@ -76,9 +64,34 @@ export default function BuyCarPage() {
   // New: popup state
   const [selectedCar, setSelectedCar] = useState(null);
 
-  const brands = useMemo(() => uniqueValues(CARS, "brand"), []);
-  const vehicles = useMemo(() => uniqueValues(CARS, "type"), []);
-  const fuels = useMemo(() => uniqueValues(CARS, "fuel"), []);
+
+
+
+
+
+
+
+const CARS = cars.map((c, index) => ({
+  id: c.id || index + 1,
+  name: c.name || c.title || "Unknown",
+  brand: c.brand || c.make || "Unknown",
+  condition: c.condition || "Used",
+  type: c.bodyType || "Sedan",
+  fuel: c.fuelType || "Petrol",
+  rating: 4.0,
+  price: c.price || 0,
+  images: c.images?.length ? c.images : [toyota],
+  model: c.model || "Unknown",
+  year: c.year || "2023",
+  kmDriven: c.kmDriven || 0,
+  city: c.city || "Unknown",
+  state: c.state || "Unknown",
+}));
+
+const brands = useMemo(() => uniqueValues(CARS, "brand"), [CARS]);
+const vehicles = useMemo(() => uniqueValues(CARS, "type"), [CARS]);
+const fuels = useMemo(() => uniqueValues(CARS, "fuel"), [CARS]);
+
 
   const toggleExpand = (key) => setExpanded((p) => ({ ...p, [key]: !p[key] }));
 
@@ -100,20 +113,22 @@ export default function BuyCarPage() {
     setSortBy("featured");
   };
 
-  const filteredCars = useMemo(() => {
-    let out = CARS;
-    if (condition) out = out.filter((c) => c.condition === condition);
-    if (filters.brand.length) out = out.filter((c) => filters.brand.includes(c.brand));
-    if (filters.vehicle.length) out = out.filter((c) => filters.vehicle.includes(c.type));
-    if (filters.fuel.length) out = out.filter((c) => filters.fuel.includes(c.fuel));
+const filteredCars = useMemo(() => {
+  let out = CARS;
 
-    if (sortBy === "low") out = out.slice().sort((a, b) => a.price - b.price);
-    else if (sortBy === "high") out = out.slice().sort((a, b) => b.price - a.price);
-    else if (sortBy === "rating") out = out.slice().sort((a, b) => b.rating - a.rating);
+  if (condition) out = out.filter((c) => c.condition === condition);
+  if (filters.brand.length) out = out.filter((c) => filters.brand.includes(c.brand));
+  if (filters.vehicle.length) out = out.filter((c) => filters.vehicle.includes(c.type));
+  if (filters.fuel.length) out = out.filter((c) => filters.fuel.includes(c.fuel));
 
-    const anyFilterApplied = filters.brand.length || filters.vehicle.length || filters.fuel.length || condition;
-    return anyFilterApplied ? out : out.slice(0, 3);
-  }, [condition, filters, sortBy]);
+  if (sortBy === "low") out = out.slice().sort((a, b) => a.price - b.price);
+  else if (sortBy === "high") out = out.slice().sort((a, b) => b.price - a.price);
+  else if (sortBy === "rating") out = out.slice().sort((a, b) => b.rating - a.rating);
+
+  const anyFilterApplied = filters.brand.length || filters.vehicle.length || filters.fuel.length || condition;
+  return anyFilterApplied ? out : out.slice(0, 5);
+}, [condition, filters, sortBy, CARS]); // ✅ Added CARS here
+
 
   const visibleBrands = brands.filter((b) => b.toLowerCase().includes(brandSearch.trim().toLowerCase()));
   const chips = [...(condition ? [{ group: "condition", label: `${condition} Car` }] : []),
@@ -419,27 +434,62 @@ export default function BuyCarPage() {
             </div>
           </div>
 
-          <div className="buycar-list">
-            {filteredCars.map((car, i) => (
-              <article className="buycar-card" key={car.id} aria-label={car.name}>
-                <div className="buycar-card-img">
-                  {car.images[0] ? <img src={car.images[0]} alt={car.name} className="buycar-img" /> : <CarSVG label={car.name} variant={i} />}
-                </div>
-                <div className="buycar-card-body">
-                  <div>
-                    <h3 className="buycar-card-title">{car.name}</h3>
-                    <div className="buycar-rating">{car.rating} ★ | {Math.round(car.rating*40)} Reviews</div>
-                  </div>
-                  <div className="buycar-price">{formatPriceRange(car.price)} <span className="on_road">* Get on-road Price</span> <small className="ex-showroom">*Ex-Showroom Price</small></div>
-                  <div className="buycar-meta"><div>12 km/l</div><div>2,755 cc</div><div>7 Seater</div></div>
-                  <div className="buycar-cta">
-                    <button className="buycar-btn-primary" onClick={() => setSelectedCar(car)}>VIEW DETAILS</button>
-                  </div>
-                </div>
-              </article>
-            ))}
-            {filteredCars.length === 0 && <div className="buycar-empty">No cars match your filters.</div>}
+<div className="buycar-list">
+  {/* Show loading first */}
+  {loading && <div className="buycar-loading">Loading cars...</div>}
+
+  {/* Show error if something went wrong */}
+  {!loading && error && (
+    <div className="buycar-error">Failed to load cars: {error}</div>
+  )}
+
+  {/* Show "No cars" if nothing to show */}
+  {!loading && !error && filteredCars.length === 0 && (
+    <div className="buycar-empty">No cars match your filters.</div>
+  )}
+
+  {/* Show cars when data is ready */}
+  {!loading && !error && filteredCars.length > 0 &&
+    filteredCars.map((car, i) => (
+      <article className="buycar-card" key={car.id} aria-label={car.name}>
+        <div className="buycar-card-img">
+          {car.images[0] ? (
+            <img src={car.images[0]} alt={car.name} className="buycar-img" />
+          ) : (
+            <CarSVG label={car.name} variant={i} />
+          )}
+        </div>
+        <div className="buycar-card-body">
+          <div>
+            <h3 className="buycar-card-title">{car.name}</h3>
+            <div className="buycar-rating">
+              {car.rating} ★ | {Math.round(car.rating * 40)} Reviews
+            </div>
           </div>
+          <div className="buycar-price">
+            {formatPriceRange(car.price)}{" "}
+            <span className="on_road">* Get on-road Price</span>{" "}
+            <small className="ex-showroom">*Ex-Showroom Price</small>
+          </div>
+          <div className="buycar-meta">
+            <div>12 km/l</div>
+            <div>2,755 cc</div>
+            <div>7 Seater</div>
+          </div>
+          <div className="buycar-cta">
+            <button
+              className="buycar-btn-primary"
+              onClick={() => setSelectedCar(car)}
+            >
+              VIEW DETAILS
+            </button>
+          </div>
+        </div>
+      </article>
+    ))}
+</div>
+
+
         </section>
       </div>
 
@@ -458,7 +508,7 @@ function formatPriceRange(value) {
 console.log("buyCars.jsx")
 // console.log(getCars)
 
-console.log(cars)
+
 // console.log(useCars)
 
 

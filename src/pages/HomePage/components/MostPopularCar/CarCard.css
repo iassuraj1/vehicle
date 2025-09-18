@@ -1,8 +1,9 @@
-.most_car-card{
-  border: 1px solid #6B7A90; 
-  border-radius: 0.5rem; 
-   /* shadow-md */
-  padding: 0.75rem; /* p-3 */
+.most_car-card {
+  width: 100%;
+  border: 1px solid #6b7a90;
+  border-radius: 0.5rem;
+  /* shadow-md */
+  /* padding: 0.75rem; p-3 */
 }
 
 .most_car-card img {
@@ -25,7 +26,6 @@
   margin: 10px;
   margin-top: 0px;
   margin-bottom: 20px;
-  
 }
 
 .most_car-card button {
@@ -43,4 +43,19 @@
 
 .most_car-card button:hover {
   background-color: #e5e7eb; /* hover:bg-gray-200 */
+}
+
+@media (max-width: 600px) {
+  .most_car-card h3 {
+    font-size: 20px; /* text-lg */
+  }
+
+  .most_car-card p {
+    font-size: 18px; /* text-sm */
+  }
+
+  .most_car-card button {
+    padding: 0.4rem 0.75rem;
+    font-size: 20px;
+  }
 }

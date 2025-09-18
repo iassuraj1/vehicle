@@ -6,33 +6,39 @@
   --acc-radius: 10px;
 }
 
-.acc-continer{
+/* Container */
+.acc-continer {
+  width: 100%;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
 
+/* Wrapper */
 .acc-wrap {
-  width: 1300px;
-  display: flex;
-  justify-content: center;
- 
- 
-}
-
-.acc-box {
   width: 100%;
   max-width: 1300px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Box */
+.acc-box {
+  width: 100%;
   background: #ffffff;
   border: 1px solid var(--acc-brand);
   border-radius: 12px;
   padding: 16px;
+  box-sizing: border-box;
 }
 
+/* Header */
 .acc-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2px 6px 10px 6px;
+  flex-wrap: wrap;
 }
 
 .acc-header h2 {
@@ -45,10 +51,17 @@
 /* Tabs */
 .acc-tabs {
   display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 28px;
   padding: 0 6px 12px 6px;
   border-bottom: 1px solid var(--acc-brand);
-  border-top: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.acc-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .acc-tab {
@@ -59,6 +72,8 @@
   color: var(--acc-muted);
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .acc-tab.active {
@@ -83,6 +98,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   padding: 16px 6px 10px 6px;
+  box-sizing: border-box;
 }
 
 .acc-card {
@@ -94,12 +110,14 @@
   flex-direction: column;
 }
 
+/* Image */
 .acc-thumb img {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
 
+/* Info */
 .acc-info {
   padding: 14px;
   display: flex;
@@ -121,7 +139,7 @@
   font-size: 22px;
 }
 
-/* Buy button */
+/* Button */
 .acc-buy {
   margin-top: 6px;
   width: 100%;
@@ -132,7 +150,7 @@
   border: 3px solid var(--acc-brand);
   font-weight: 600;
   cursor: pointer;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .acc-buy:hover {
@@ -158,12 +176,68 @@
   margin-left: 12px;
 }
 
-/* Responsive */
-@media (max-width: 980px) {
-  .acc-grid { grid-template-columns: repeat(2, 1fr); }
+/* ---------------- Responsive ---------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .acc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .acc-header h2 {
+    font-size: 26px;
+  }
+
+  .acc-tab {
+    font-size: 20px;
+  }
 }
+
+/* Mobile */
 @media (max-width: 620px) {
-  .acc-tabs { gap: 18px; }
-  .acc-grid { grid-template-columns: 1fr; }
-  .acc-thumb img { height: 200px; }
+  .acc-tabs {
+    gap: 18px;
+  }
+
+  .acc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acc-thumb img {
+    height: 200px;
+  }
+
+  .acc-title,
+  .acc-price {
+    font-size: 18px;
+  }
+
+  .acc-buy {
+    font-size: 16px;
+    height: 40px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 420px) {
+  .acc-header h2 {
+    font-size: 22px;
+  }
+
+  .acc-tab {
+    font-size: 18px;
+  }
+
+  .acc-thumb img {
+    height: 180px;
+  }
+
+  .acc-info {
+    padding: 8px;
+  }
+
+  .acc-buy {
+    font-size: 15px;
+    height: 38px;
+  }
 }

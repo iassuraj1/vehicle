@@ -1,4 +1,4 @@
-const  cars= [
+const  car= [
         {
             "_id": "68c85316ea46a1669b2140ac",
             "title": "Toyota Noah 2007",
@@ -572,4 +572,4 @@ const  cars= [
 ]
 
 
-export default cars;
+export default car;

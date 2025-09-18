@@ -19,7 +19,7 @@
 .cf__title {
   margin: 6px 0 18px;
   text-align: center;
-  font-size: 30px;              /* as requested */
+  font-size: 30px;
   line-height: 1.15;
   font-weight: 700;
   color: var(--cf-blue);
@@ -31,10 +31,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: center;
-  border: 1px solid var(--cf-blue);  /* as requested */
+  border: 1px solid var(--cf-blue);
   border-radius: 10px;
-
-  margin: 0 0 20px;
+  margin-bottom: 20px;
   background: #fff;
   box-sizing: border-box;
 }
@@ -43,10 +42,10 @@
 .cf__card--reverse .cf__media { order: 2; }
 .cf__card--reverse .cf__body  { order: 1; }
 
-/* Media block (fixed visual height like mock) */
+/* Media */
 .cf__media {
   width: 100%;
-  height: 100%;                 /* gives the same proportion as screenshot */
+  height: 100%;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -55,7 +54,6 @@
   height: 400px;
   display: block;
   object-fit: cover;
-  
 }
 
 /* Content */
@@ -78,14 +76,14 @@
 }
 .cf__list li { margin-bottom: 6px; }
 
-/* Outline button exactly like mock */
+/* Button */
 .cf__btn {
   width: 350px;
   font-size: 23px;
   margin-top: 20px;
   margin-bottom: 40px;
   height: 44px;
-  border: 3px solid var(--cf-blue);  /* 1px as requested */
+  border: 3px solid var(--cf-blue);
   border-radius: 8px;
   background: transparent;
   color: var(--cf-blue);
@@ -98,33 +96,106 @@
   justify-content: center;
   transition: background .2s ease, color .2s ease;
 }
-.cf__btn:hover { background: var(--cf-blue); color: #fff; }
-
-/* Responsive (mobile stack) */
-@media (max-width: 900px) {
-  .cf__card { grid-template-columns: 1fr; }
-  .cf__media { height: 220px; }
-  .cf__body { padding: 4px 2px; }
-  .cf__btn { width: 100%; }
+.cf__btn:hover {
+  background: var(--cf-blue);
+  color: #fff;
 }
 
-.button{
+/* Custom View Button */
+.button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 20px ; 
+  margin: 20px;
 }
 
-
-.view_detils_button{
+.view_detils_button {
   font-size: 23px;
-  padding: 10px 50px 10px 50px;
+  padding: 10px 50px;
   border-radius: 10px;
   background-color: #377CDB;
   color: white;
   text-transform: uppercase;
   border: 1px solid #377CDB;
-  
-
+  cursor: pointer;
 }
 
+/* ======================= */
+/* 💡 Responsive Tweaks 💡 */
+/* ======================= */
+
+@media (max-width: 1024px) {
+  .cf__title,
+  .cf__subtitle {
+    font-size: 26px;
+  }
+
+  .cf__list {
+    font-size: 20px;
+  }
+
+  .cf__btn,
+  .view_detils_button {
+    font-size: 20px;
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cf__card {
+    grid-template-columns: 1fr;
+  }
+
+  .cf__media img {
+    height: 250px;
+  }
+
+  .cf__body {
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .cf__list {
+    margin-left: 16px;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .cf__btn {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .view_detils_button {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cf__title,
+  .cf__subtitle {
+    font-size: 22px;
+  }
+
+  .cf__list {
+    font-size: 16px;
+  }
+
+  .cf__media img {
+    height: 200px;
+  }
+
+  .cf__btn {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .view_detils_button {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}

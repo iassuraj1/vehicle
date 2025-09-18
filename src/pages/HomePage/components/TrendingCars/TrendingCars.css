@@ -1,11 +1,8 @@
-.continer{
-  margin: 0;
-  padding: 0;
+.continer {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-
 }
 
 .trending-container {
@@ -24,17 +21,15 @@
   color: #294872;
 }
 
-
 .cars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
 }
 
-
 .car-card-tranding {
-  border: 1px solid #294872 ;
- border-color: #294872;
+  border: 1px solid #294872;
+  border-color: #294872;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
@@ -51,7 +46,7 @@
   margin: 10px 0 6px;
   font-size: 22px;
   text-align: left;
-  padding-left:10px ;
+  padding-left: 10px;
 }
 
 .car-card-tranding p {
@@ -71,7 +66,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -88,4 +83,26 @@
   cursor: pointer;
   font-size: 23px;
   text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .trending-container {
+    padding: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .trending-container h2 {
+    font-size: 25px;
+  }
+  .car-card-tranding h3 {
+    font-size: 20px;
+  }
+
+  .car-card-tranding p {
+    font-size: 18px;
+  }
+  .notify-btn {
+    padding: 7px 20px;
+    font-size: 16px;
+  }
 }

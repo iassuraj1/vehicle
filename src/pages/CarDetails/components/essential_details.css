@@ -4,12 +4,12 @@
   padding: 20px;
   font-family: "Arial", sans-serif;
   color: #333;
-  
+  box-sizing: border-box;
 }
 
 .buycar-details-main-image {
   text-align: center;
- 
+  margin-bottom: 20px;
 }
 
 .buycar-details-main-image img {
@@ -22,55 +22,57 @@
   text-align: center;
   font-size: 24px;
   line-height: 1.6;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: #444;
-  margin-top: 0px;
-
 }
 
+/* Card container */
 .buycar-details-card {
   display: flex;
   gap: 20px;
   border: 1px solid #294872;
   border-radius: 8px;
-  margin: 40px 0px 40px;
+  margin: 40px 0;
   background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Left image */
 .buycar-details-card-left img {
   width: 600px;
+  max-width: 100%;
   height: auto;
   border-radius: 6px;
   object-fit: cover;
 }
 
+/* Right content */
 .buycar-details-card-right {
   flex: 1;
-  margin-top: 100px ;
+  margin-top: 100px;
   margin-left: 20px;
 }
 
 .buycar-details-card-right h3 {
   margin-top: 0;
-  font-size: 20px;
-  margin-bottom: 15px;
   font-size: 30px;
+  margin-bottom: 15px;
   color: #294872;
 }
 
 .buycar-details-card-right ul {
   list-style: disc;
-  padding: 0;
-  margin: 20px 0 20px 20px;
-  
+  padding-left: 20px;
+  margin: 20px 0;
 }
 
 .buycar-details-card-right li {
-  
   margin-bottom: 8px;
   font-size: 24px;
 }
 
+/* Button */
 .buycar-details-btn {
   background-color: #1a73e8;
   font-size: 23px;
@@ -85,4 +87,54 @@
 
 .buycar-details-btn:hover {
   background-color: #155ab6;
+}
+
+/* -------- Responsive -------- */
+
+@media (max-width: 1024px) {
+  .buycar-details-card {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .buycar-details-card-left img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .buycar-details-card-right {
+    margin-top: 0;
+    margin-left: 0;
+    text-align: start;
+  }
+
+  .buycar-details-card-right h3 {
+    font-size: 26px;
+  }
+
+  .buycar-details-card-right li {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .buycar-details-description {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .buycar-details-card-right h3 {
+    font-size: 22px;
+  }
+
+  .buycar-details-card-right li {
+    font-size: 18px;
+  }
+
+  .buycar-details-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 0;
+  }
 }

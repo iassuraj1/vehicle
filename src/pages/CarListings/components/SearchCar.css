@@ -4,7 +4,7 @@
   padding: 20px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -30,31 +30,31 @@
 }
 
 .list-search-input {
-   width: 98%;
-    padding: 10px 0px 10px 12px;
-    border: 1px solid #294872;
-    border-radius: 6px;
-    font-size: 17px;
-    color: #555;
+  width: 98%;
+  padding: 10px 0px 10px 12px;
+  border: 1px solid #294872;
+  border-radius: 6px;
+  font-size: 17px;
+  color: #555;
 }
 .date-input {
-   width: 95%;
-    padding: 10px 0px 10px 12px;
-    border: 1px solid #294872;
-    border-radius: 6px;
-    font-size: 17px;
-    color: #555;
+  width: 100%;
+  padding: 10px 0px 10px 12px;
+  border: 1px solid #294872;
+  border-radius: 6px;
+  font-size: 17px;
+  color: #555;
 }
 .input-group .icon {
   position: absolute;
-  right: 12px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   color: #555;
 }
 
 .new-car-btn {
-  background: #377CDB;
+  background: #377cdb;
   color: #fff;
   border: none;
   padding: 10px 210px 10px 10px;
@@ -74,7 +74,6 @@
 .dropdown-row {
   display: flex;
   gap: 10px;
-  
 }
 
 .dropdown-row select {
@@ -93,7 +92,7 @@
   font-weight: 550;
   margin-bottom: 5px;
 }
-.budget-section label{
+.budget-section label {
   font-size: 30px;
   color: #294872;
 }
@@ -111,11 +110,21 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .search-row, .dropdown-row {
+  .search-row,
+  .dropdown-row {
     flex-direction: column;
   }
 
   .new-car-btn {
     width: 100%;
+  }
+  .search-container {
+    margin: 0px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .budget-section label {
+    font-size: 25px;
   }
 }

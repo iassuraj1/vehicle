@@ -1,27 +1,33 @@
-
-.footer{
-    margin: 0;
-    padding: 10px;
-
-    text-align: center;
-    background-color: #d8d8d8;
-    line-height: 1rem;
-    border: 1px solid #595959;
-    font-family: "Abhaya Libre";
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #d8d8d8;
+  line-height: 1rem;
+  border: 1px solid #595959;
+  font-family: "Abhaya Libre";
 }
 
-
-.Motors_Heading{
-    font-size: 40px;
-     /* font-family: "Abhaya Libre"; */
-     font-family: sans-serif;
-     text-transform: uppercase;
-     font-weight: 500;
-     margin-bottom: 0px;
+.Motors_Heading {
+  font-size: 40px;
+  /* font-family: "Abhaya Libre"; */
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
 
-.paragraph{
-    
-    color: #294872;
-    font-size: 22px  ;
+.paragraph {
+  color: #294872;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .Motors_Heading {
+    font-size: 23px;
+  }
+  .paragraph {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }

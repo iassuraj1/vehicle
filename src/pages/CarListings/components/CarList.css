@@ -5,19 +5,20 @@
   background-color: #fff;
   max-width: 1300px;
   margin: 20px auto;
+  box-sizing: border-box;
 }
 
 .carlist-title {
   font-size: 30px;
-  font-weight: 550;
+  font-weight: bold;
   margin-bottom: 16px;
-  margin-top: 0px;
   color: #294872;
+  text-align: center;
 }
 
 .carlist-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -61,7 +62,7 @@
 .carlist-notify-btn {
   width: 100%;
   padding: 10px;
-  border: 2px solid #294872;
+  border: 1px solid #294872;
   background: #fff;
   color: #294872;
   font-weight: 600;
@@ -73,4 +74,84 @@
 .carlist-notify-btn:hover {
   background: #294872;
   color: #fff;
+}
+
+/* ======================== */
+/* 📱 Responsive Queries */
+/* ======================== */
+
+@media (max-width: 1024px) {
+  .carlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .carlist-image {
+    height: 200px;
+  }
+
+  .carlist-title {
+    font-size: 26px;
+  }
+
+  .carlist-name {
+    font-size: 15px;
+  }
+
+  .carlist-price {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carlist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carlist-image {
+    height: 180px;
+  }
+
+  .carlist-title {
+    font-size: 24px;
+  }
+
+  .carlist-name {
+    font-size: 15px;
+  }
+
+  .carlist-price {
+    font-size: 13px;
+  }
+
+  .carlist-notify-btn {
+    font-size: 15px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carlist-container {
+    padding: 12px;
+  }
+
+  .carlist-title {
+    font-size: 22px;
+  }
+
+  .carlist-image {
+    height: 160px;
+  }
+
+  .carlist-name {
+    font-size: 18px;
+  }
+
+  .carlist-price {
+    font-size: 16px;
+  }
+
+  .carlist-notify-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
 }

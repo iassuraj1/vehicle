@@ -17,6 +17,12 @@ export const cars = {
       name: "Toyota RAV4",
       price: "From SSP 3.5M – 7.5M",
       image: "/HomePageImages/bentley-flying.jpg"
+    },
+     {
+      id: 4,
+      name: "Toyota RAV4",
+      price: "From SSP 3.5M – 7.5M",
+      image: "/HomePageImages/bentley-flying.jpg"
     }
   ],
   Sedan: [
