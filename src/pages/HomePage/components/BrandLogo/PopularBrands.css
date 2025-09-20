@@ -35,6 +35,7 @@
   border: 1px solid #6B7A90;
   border-radius: 10px;
   background: #fafafa;
+  height: 250px;
 }
 
 .brand-card:hover {
@@ -44,8 +45,8 @@
 
 .brand-card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 80%;
+  object-fit: contain;
   border-radius: 10px;
 }
 

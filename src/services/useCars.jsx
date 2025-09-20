@@ -14,7 +14,7 @@ useEffect(() => {
   const fetchCars = async () => {
     try {
       const result = await getCars();
-      console.log("API raw result:", result);
+     
 
       if (Array.isArray(result)) {
         setCars(result);
@@ -35,7 +35,7 @@ useEffect(() => {
   fetchCars();
 }, []);
 
-  console.log("useCars data ",{cars})
+  
   return {cars, loading, error };
 };
 

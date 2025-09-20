@@ -382,8 +382,11 @@
   display: flex;
   align-items: center;
   width: 200px;
-  border-radius: 10px;
+  border-radius: 6px;
    border: 1px solid var(--deep);
+   width: 100%;
+   margin-bottom: 10px;
+ 
 }
 
 .calendar_input {
@@ -413,7 +416,8 @@
 }
 
 .calendar_icon {
-  border: 1px solid rgb(75, 32, 32);
+  /* border: 1px solid rgb(75, 32, 32); */
+  border: none;
   position: absolute;
   right: 12px;
   font-size: 20px;

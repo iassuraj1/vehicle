@@ -4,8 +4,8 @@ import "./PopularBrands.css";
 const PopularBrands = () => {
   const brands = [
     { name: "Toyota", logo: "/HomePageImages/car_logo.png" },
-    { name: "Nissan", logo: "/HomePageImages/hyundai_logo1.jpg" },
-    { name: "Mitsubishi", logo: "/HomePageImages/car_logo.png" },
+    { name: "Hyundai", logo: "/HomePageImages/hyundai_logo3.png" },
+    { name: "Mercedes", logo: "/HomePageImages/mercedes-logo-4.jpg" },
     { name: "Hyundai", logo: "/HomePageImages/car_logo.png" },
   ];
 

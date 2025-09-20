@@ -3,7 +3,7 @@
   // Get all cars
   export const getCars = async () => {
     const response = await api.get("/car");   // ✅ fixed
-    console.log(response.data)
+  
     return response.data;
 
   };

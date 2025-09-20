@@ -1,4 +1,4 @@
-// utils/carFilterByMake.js
+
 export const carFilterByMake = (cars) => {
   const grouped = {};
 
@@ -11,7 +11,6 @@ export const carFilterByMake = (cars) => {
       id: car.id,
       name: car.name,
       price: car.price,
-      // image: car.images?.[0] || car.image || "",
         images: car.images && car.images.length > 0 
                 ? car.images 
                 : car.image 
@@ -21,8 +20,8 @@ export const carFilterByMake = (cars) => {
       year: car.year || "",
     });
   });
-  console.log("all grouped cars",grouped)
-  return grouped; // ✅ plain JSON object
+
+  return grouped; 
 };
 
 
