@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./MainHeader.css";
+import Language from "../Language";
 
 import Login from "../../pages/Login";
 import Signup from "../../pages/Signup";
@@ -61,14 +62,10 @@ export default function MainHeader() {
 
       {/* Right side */}
       <div className="header-right">
-        <select
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          className="lang-dropdown"
-        >
-          <option>English</option>
-          <option>Arabic</option>
-        </select>
+             <Language/>
+        
+
+
 
         <button className="contact-btn" onClick={() => setIsContactOpen(true)}>CONTACT US</button>
         <ContactForm isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />

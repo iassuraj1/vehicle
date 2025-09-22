@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import MainHeader from "./components/header/MainHeader";
 import Navbar from "./components/navbar/Navbar";
+// import { useRef } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router} from "react-router-dom";
@@ -14,6 +15,7 @@ import CarDetails from "./pages/CarDetails/CarDetails";
 import CarAccessories from "./pages/CarAccessories/CarAccessories";
 import Footer from "./components/footer/footer";
 import WhatsApp from "./components/WhatsApp" ;
+
 function App() {
   return (
     <Router>
@@ -29,6 +31,7 @@ function App() {
         <Route path="/car-accessories" element={<CarAccessories />} />
       </Routes>
       <WhatsApp/>
+ 
       <Footer/>
 
     </Router>
