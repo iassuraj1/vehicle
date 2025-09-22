@@ -6,7 +6,7 @@ const PopularBrands = () => {
     { name: "Toyota", logo: "/HomePageImages/car_logo.png" },
     { name: "Hyundai", logo: "/HomePageImages/hyundai_logo3.png" },
     { name: "Mercedes", logo: "/HomePageImages/mercedes-logo-4.jpg" },
-    { name: "Hyundai", logo: "/HomePageImages/car_logo.png" },
+    { name: "Audi", logo: "/HomePageImages/audi_logo.png" },
   ];
 
   return (

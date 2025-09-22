@@ -9,7 +9,7 @@ const ContactForm = () => {
   const public_key ="j7zRwmN2v-VjO2B7J"
   const service_id ="service_9nodsbp"
   const template_id ="template_f1bwe6d"
-
+const url =`https://wa.me/${919525200203}`
 
    const sendEmail = (e) => {
     e.preventDefault();
@@ -57,11 +57,11 @@ const ContactForm = () => {
             <span className="icon"><FaPhoneAlt className="phone_icon" /></span> +211 91 234 5678
           </p>
         </div>
-        <button className="whatsapp-btn">WHATSAPP OUR TEAM</button>
+        
+        <a href={url} > <button className="whatsapp-btn" >WHATSAPP OUR TEAM</button> </a>
       </div>
 
-
-
+   
 
 
 

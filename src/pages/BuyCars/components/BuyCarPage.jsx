@@ -505,10 +505,6 @@ function formatPriceRange(value) {
   return value >= 1000 ? `${Math.round(low)}K - ${Math.round(high)}K SSP` : `${value} SSP`;
 }
 
-console.log("buyCars.jsx")
-// console.log(getCars)
 
-
-// console.log(useCars)
 
 

@@ -13,6 +13,7 @@ import CarListings from "./pages/CarListings/CarListings";
 import CarDetails from "./pages/CarDetails/CarDetails";
 import CarAccessories from "./pages/CarAccessories/CarAccessories";
 import Footer from "./components/footer/footer";
+import WhatsApp from "./components/WhatsApp" ;
 function App() {
   return (
     <Router>
@@ -27,8 +28,9 @@ function App() {
         <Route path="/car-details" element={<CarDetails />} />
         <Route path="/car-accessories" element={<CarAccessories />} />
       </Routes>
-
+      <WhatsApp/>
       <Footer/>
+
     </Router>
   );
 }
