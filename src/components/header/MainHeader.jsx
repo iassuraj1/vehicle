@@ -12,7 +12,6 @@ import ContactForm from "../ContactPage";
 
 
 export default function MainHeader() {
-  const [language, setLanguage] = useState("English");
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [registerOption, setRegisterOption] = useState("");
@@ -96,14 +95,7 @@ export default function MainHeader() {
 
       {menuOpen && (
         <div className="mobile-menu">
-          <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="lang-dropdown"
-          >
-            <option>English</option>
-            <option>Arabic</option>
-          </select>
+          <Language/>
           
          <button className="contact-btn" onClick={() => setIsContactOpen(true)}>CONTACT US</button>
         <ContactForm isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
