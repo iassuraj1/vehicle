@@ -1,11 +1,11 @@
-
-
-
-
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CurrencyContext } from "../CurrencyContext"; // ✅ import context
 
 export default function Navbar() {
+  const { currency, setCurrency } = useContext(CurrencyContext); // ✅ access global state
+
   return (
     <nav>
       <div className="nav-links">
@@ -30,13 +30,6 @@ export default function Navbar() {
           Car Listings
         </NavLink>
 
-        {/* <NavLink 
-          to="/car-details" 
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Car Details
-        </NavLink> */}
-
         <NavLink 
           to="/car-accessories" 
           className={({ isActive }) => (isActive ? "active-link" : "")}
@@ -44,12 +37,16 @@ export default function Navbar() {
           Car Accessories
         </NavLink>
 
-        <select id="mode_types">
-          <option value="ssp">SSP</option>
-          <option value="usd">USD</option>
+        {/* ✅ Dropdown connected with global currency */}
+        <select
+          id="mode_types"
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        >
+          <option value="SSP">SSP</option>
+          <option value="USD">USD</option>
         </select>
       </div>
     </nav>
   );
 }
-

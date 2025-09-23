@@ -21,12 +21,56 @@
 
 
 
+
+
+
+
+
+
+
+
+
+//   import "./CarCard.css";
+
+//   const CarCard = ({ car, onViewDetails }) => {
+//     const carName = car.name || car.title || `${car.make || ""} ${car.model || ""}`.trim();
+//     const carPrice = car.price
+//       ? `$${Number(car.price).toLocaleString()}`
+//       : "Price not available";
+
+//     return (
+//       <div className="most_car-card">
+//         <img src={car.image || (car.images && car.images[0])} alt={carName} />
+//         <h3>{carName}</h3>
+//         <p>{carPrice}</p>
+//   <button onClick={() => onViewDetails(car)}>View Cars</button>
+
+//     </div>
+//   );
+// };
+
+// export default CarCard;
+
+
+
+
 import "./CarCard.css";
+import { useContext } from "react";
+import { CurrencyContext } from "../../../../components/CurrencyContext";
 
 const CarCard = ({ car, onViewDetails }) => {
+  const { currency } = useContext(CurrencyContext);
+
   const carName = car.name || car.title || `${car.make || ""} ${car.model || ""}`.trim();
-  const carPrice = car.price
-    ? `$${Number(car.price).toLocaleString()}`
+
+  // ✅ Choose price based on selected currency
+  const price =
+    currency === "USD"
+      ? car.usdprice
+      : car.sspprice;
+
+  const carPrice = price
+    ? `${currency} ${Number(price).toLocaleString()}`
     : "Price not available";
 
   return (
@@ -34,8 +78,7 @@ const CarCard = ({ car, onViewDetails }) => {
       <img src={car.image || (car.images && car.images[0])} alt={carName} />
       <h3>{carName}</h3>
       <p>{carPrice}</p>
-<button onClick={() => onViewDetails(car)}>View Cars</button>
-
+      <button onClick={() => onViewDetails(car)}>View Cars</button>
     </div>
   );
 };

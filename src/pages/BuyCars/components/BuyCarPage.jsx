@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState ,useContext} from "react";
 import toyota from "../../../assets/BuyCar/toyota.png";
 import { FaSearch } from "react-icons/fa";
 import "./BuyCarPage.css";
@@ -7,7 +7,7 @@ import "./BuyCarPage.css";
 import useCars from "../../../services/useCars";
 
 import ViewDetails from "../../../components/ViewCarDetails"; // import your view car details component
-
+import { CurrencyContext } from "../../../components/CurrencyContext";
 
 
 
@@ -46,6 +46,7 @@ export default function BuyCarPage() {
   const {cars, loading,error}= useCars()
   // const updatedCars = myCars[0]
 
+  const { currency } = useContext(CurrencyContext);
 
 
   const [condition, setCondition] = useState("");
@@ -57,7 +58,7 @@ export default function BuyCarPage() {
     transmission: false,
     features: false,
   });
-  const [filters, setFilters] = useState({ brand: [], vehicle: [], fuel: [] });
+  const [filters, setFilters] = useState({ brand: [], vehicle: [], fuel: [] ,budget: null, budgetRange: null});
   const [brandSearch, setBrandSearch] = useState("");
   const [sortBy, setSortBy] = useState("featured");
 
@@ -79,7 +80,8 @@ const CARS = cars.map((c, index) => ({
   type: c.bodyType || "Sedan",
   fuel: c.fuelType || "Petrol",
   rating: 4.0,
-  price: c.price || 0,
+  sspprice: c.sspprice || 0,
+  usdprice: c.usdprice || 0,
   images: c.images?.length ? c.images : [toyota],
   model: c.model || "Unknown",
   year: c.year || "2023",
@@ -121,13 +123,48 @@ const filteredCars = useMemo(() => {
   if (filters.vehicle.length) out = out.filter((c) => filters.vehicle.includes(c.type));
   if (filters.fuel.length) out = out.filter((c) => filters.fuel.includes(c.fuel));
 
-  if (sortBy === "low") out = out.slice().sort((a, b) => a.price - b.price);
-  else if (sortBy === "high") out = out.slice().sort((a, b) => b.price - a.price);
-  else if (sortBy === "rating") out = out.slice().sort((a, b) => b.rating - a.rating);
+  // ✅ Add this block
+  if (filters.budget) {
+    out = out.filter((c) => {
+      const price = currency === "USD" ? c.usdprice : c.sspprice;
+      return price <= filters.budget;
+    });
+  }
+  if (filters.budgetRange) {
+    out = out.filter((c) => {
+      const price = currency === "USD" ? c.usdprice : c.sspprice;
 
-  const anyFilterApplied = filters.brand.length || filters.vehicle.length || filters.fuel.length || condition;
+      if (filters.budgetRange === "low") {
+        return currency === "USD"
+          ? price >= 1000 && price <= 15000
+          : price >= 785000 && price <= 1570000;
+      }
+      if (filters.budgetRange === "mid") {
+        return currency === "USD"
+          ? price > 15000 && price <= 25000
+          : price > 1570000 && price <= 2350000;
+      }
+      if (filters.budgetRange === "high") {
+        return currency === "USD"
+          ? price > 25000 && price <= 40000
+          : price > 2350000 && price <= 3140000;
+      }
+      return true;
+    });
+  }
+  // ✅ End budget filter
+
+  if (sortBy === "low")
+    out = out.slice().sort((a, b) => (currency === "USD" ? a.usdprice - b.usdprice : a.sspprice - b.sspprice));
+  else if (sortBy === "high")
+    out = out.slice().sort((a, b) => (currency === "USD" ? b.usdprice - a.usdprice : b.sspprice - a.sspprice));
+
+  const anyFilterApplied =
+    filters.brand.length || filters.vehicle.length || filters.fuel.length || condition || filters.budget || filters.budgetRange;
+
   return anyFilterApplied ? out : out.slice(0, 5);
-}, [condition, filters, sortBy, CARS]); // ✅ Added CARS here
+}, [condition, filters, sortBy, CARS, currency]);
+
 
 
   const visibleBrands = brands.filter((b) => b.toLowerCase().includes(brandSearch.trim().toLowerCase()));
@@ -161,32 +198,102 @@ const filteredCars = useMemo(() => {
           </div>
 
           {/* Budget */}
+          {/* Budget */}
           <div className="buycar-filter">
             <h4 onClick={() => toggleExpand("budget")}>
               <span>Budget</span>
               <span className="buycar-toggle-icon">{expanded.budget ? "–" : "+"}</span>
             </h4>
+
             {expanded.budget && (
               <div style={{ marginTop: 8 }}>
-                <div className="buycar-range-legend">SSP 300,000 — SSP 15,000,000</div>
-                <input className="buycar-range" type="range" min="0" max="100" defaultValue="40" />
-                <div style={{ marginTop: 10, fontSize: 13, color: "#6b7b8c" }}>
-                  Or select from ranges below
+                {/* Dynamic legend */}
+                <div className="buycar-range-legend">
+                  {currency}{" "}
+                  {currency === "USD" ? "1,000 — 50,000" : "300,000 — 15,000,000"}
                 </div>
+
+                {/* Range Slider */}
+                <input
+                  className="buycar-range"
+                  type="range"
+                  min={currency === "USD" ? 1000 : 300000}
+                  max={currency === "USD" ? 50000 : 15000000}
+                  step={currency === "USD" ? 500 : 50000}
+                  value={filters.budget || (currency === "USD" ? 1000 : 300000)}
+                  onChange={(e) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      budget: Number(e.target.value),
+                      budgetRange: null, // reset checkbox if slider is moved
+                    }))
+                  }
+                />
+
+                <div style={{ marginTop: 10, fontSize: 13, color: "#6b7b8c" }}>
+                  Selected:{" "}
+                  {filters.budget
+                    ? `${currency} ${filters.budget.toLocaleString()}`
+                    : "Not selected"}
+                </div>
+
+                {/* Checkbox Ranges */}
                 <div className="buycar-checkbox-group" style={{ marginTop: 8 }}>
                   <label className="buycar-checkbox">
-                    <input type="checkbox" /> 7.85L - 15.7L SSP (3)
+                    <input
+                      type="checkbox"
+                      checked={filters.budgetRange === "low"}
+                      onChange={() =>
+                        setFilters((prev) => ({
+                          ...prev,
+                          budgetRange: prev.budgetRange === "low" ? null : "low",
+                          budget: null, // reset slider if checkbox picked
+                        }))
+                      }
+                    />{" "}
+                    {currency === "USD"
+                      ? "$1K – $15K"
+                      : "7.85L – 15.7L SSP"}
                   </label>
+
                   <label className="buycar-checkbox">
-                    <input type="checkbox" /> 15.7L - 23.5L SSP (4)
+                    <input
+                      type="checkbox"
+                      checked={filters.budgetRange === "mid"}
+                      onChange={() =>
+                        setFilters((prev) => ({
+                          ...prev,
+                          budgetRange: prev.budgetRange === "mid" ? null : "mid",
+                          budget: null,
+                        }))
+                      }
+                    />{" "}
+                    {currency === "USD"
+                      ? "$15K – $25K"
+                      : "15.7L – 23.5L SSP"}
                   </label>
+
                   <label className="buycar-checkbox">
-                    <input type="checkbox" /> 23.5L - 31.4L SSP (6)
+                    <input
+                      type="checkbox"
+                      checked={filters.budgetRange === "high"}
+                      onChange={() =>
+                        setFilters((prev) => ({
+                          ...prev,
+                          budgetRange: prev.budgetRange === "high" ? null : "high",
+                          budget: null,
+                        }))
+                      }
+                    />{" "}
+                    {currency === "USD"
+                      ? "$25K – $40K"
+                      : "23.5L – 31.4L SSP"}
                   </label>
                 </div>
               </div>
             )}
           </div>
+
 
           {/* Brand */}
           <div className="buycar-filter">
@@ -467,10 +574,10 @@ const filteredCars = useMemo(() => {
             </div>
           </div>
           <div className="buycar-price">
-            {formatPriceRange(car.price)}{" "}
-            <span className="on_road">* Get on-road Price</span>{" "}
-            <small className="ex-showroom">*Ex-Showroom Price</small>
-          </div>
+          {formatPrice(car, currency)}{" "}
+          <span className="on_road">* Get on-road Price</span>{" "}
+          <small className="ex-showroom">*Ex-Showroom Price</small>
+        </div>
           <div className="buycar-meta">
             <div>12 km/l</div>
             <div>2,755 cc</div>
@@ -499,10 +606,11 @@ const filteredCars = useMemo(() => {
   );
 }
 
-function formatPriceRange(value) {
-  const low = Math.round(value * 0.95 / 1000) * 1;
-  const high = Math.round(value * 1.05 / 1000) * 1;
-  return value >= 1000 ? `${Math.round(low)}K - ${Math.round(high)}K SSP` : `${value} SSP`;
+function formatPrice(car, currency) {
+  const price = currency === "USD" ? car.usdprice : car.sspprice;
+  if (!price) return "Price not available";
+
+  return `${currency} ${Number(price).toLocaleString()}`;
 }
 
 

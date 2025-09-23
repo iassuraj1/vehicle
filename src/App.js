@@ -16,8 +16,12 @@ import CarAccessories from "./pages/CarAccessories/CarAccessories";
 import Footer from "./components/footer/footer";
 import WhatsApp from "./components/WhatsApp" ;
 
+import { CurrencyProvider } from "../src/components/CurrencyContext";
+
 function App() {
   return (
+
+    <CurrencyProvider>
     <Router>
       <MainHeader />
       <Navbar />
@@ -35,6 +39,8 @@ function App() {
       <Footer/>
 
     </Router>
+
+    </CurrencyProvider>
   );
 }
 
