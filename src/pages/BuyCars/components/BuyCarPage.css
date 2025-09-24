@@ -214,9 +214,9 @@
   background: #fff;
   border: 1px solid #294872;
   border-radius: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
   box-shadow: 0 6px 18px rgba(32, 40, 60, 0.04);
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .buycar-card-img {

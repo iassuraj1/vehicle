@@ -31,7 +31,7 @@
   border: 1px solid #294872;
   border-color: #294872;
   border-radius: 8px;
-  padding: 12px;
+ 
   text-align: center;
 }
 
@@ -46,7 +46,7 @@
   margin: 10px 0 6px;
   font-size: 22px;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 22px;
 }
 
 .car-card-tranding p {
@@ -54,7 +54,7 @@
   font-size: 22px;
   margin-bottom: 20px;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 22px;
   margin-top: 0px;
 }
 
@@ -62,12 +62,14 @@
   background: #fff;
   border: 2px solid #294872;
   color: #294872;
-  padding: 8px 30px;
+  padding: 8px 30px ;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
   font-size: 20px;
   font-weight: 600;
+  margin: 12px;
+  
 }
 
 .notify-btn:hover {
