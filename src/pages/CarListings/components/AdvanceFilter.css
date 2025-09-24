@@ -96,10 +96,18 @@
 
 .see-more {
   font-size: 14px;
-  color: #007bff;
+  color: #294872;
   text-decoration: none;
-  margin-top: 10px;
+  margin: 10px auto 10px 5px;
   display: inline-block;
+ 
+}
+
+.view-all-filters{
+  color: #294872;
+  position: relative;
+  left: 100px;
+  margin-bottom: 10px;
 }
 
 .horizontal_line {
@@ -276,5 +284,15 @@
 
   .container {
     padding: 10px;
+  }
+
+  .see-more{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .view-all-filters{
+    margin-top: 5px;
+    position: absolute;
+    right: 20px;
   }
 }

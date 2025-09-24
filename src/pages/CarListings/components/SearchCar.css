@@ -20,7 +20,7 @@
 /* Search Row */
 .search-row {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 15px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .list-search-input {
-  width: 98%;
+  width: 100%;
   padding: 10px 0px 10px 12px;
   border: 1px solid #294872;
   border-radius: 6px;
@@ -57,7 +57,7 @@
   background: #377cdb;
   color: #fff;
   border: none;
-  padding: 10px 210px 10px 10px;
+  padding: 10px 190px 10px 10px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: bold;

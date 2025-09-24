@@ -533,7 +533,7 @@ const AdvanceFilter = ({ filters, setFilters }) => {
 
           {filteredCars.length > 2 && (
             <span
-              className="view-all"
+              className="view-all-filters"
               onClick={() => setShowAllFiltered((prev) => !prev)}
             >
               {showAllFiltered

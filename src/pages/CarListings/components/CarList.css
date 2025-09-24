@@ -62,13 +62,14 @@
 .carlist-notify-btn {
   width: 100%;
   padding: 10px;
-  border: 1px solid #294872;
+  border: 3px solid #294872;
   background: #fff;
   color: #294872;
   font-weight: 600;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 23px;
 }
 
 .carlist-notify-btn:hover {

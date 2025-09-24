@@ -35,7 +35,6 @@ useEffect(() => {
   fetchCars();
 }, []);
 
-  console.log("useCars",cars)
   return {cars, loading, error };
 };
 
