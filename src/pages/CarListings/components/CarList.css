@@ -39,7 +39,7 @@
 
 .carlist-image {
   width: 100%;
-  height: 220px;
+  height: 320px;
   object-fit: cover;
 }
 
@@ -140,7 +140,7 @@
   }
 
   .carlist-image {
-    height: 160px;
+    height: 200px;
   }
 
   .carlist-name {
