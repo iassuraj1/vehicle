@@ -6,7 +6,7 @@ const WhatsApp = () => {
     <div>
 
       <FloatingWhatsApp
-        phoneNumber="919525200203"   
+        phoneNumber="+211912345678"   
         accountName="Support"
         chatMessage="Hello! How can we help you?"
         placeholder="Type a message.."
